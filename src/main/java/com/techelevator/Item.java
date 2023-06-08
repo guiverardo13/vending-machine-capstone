@@ -8,10 +8,10 @@ public class Item {
 
     private String name;
     private String type;
-    private double price;
+    private int price;
     private String keyCode;
 
-    public Item(String keyCode, String name, double price, String type) {
+    public Item(String keyCode, String name, int price, String type) {
         this.name = name;
         this.type = type;
         this.price = price;
@@ -26,7 +26,7 @@ public class Item {
         return type;
     }
 
-    public double getPrice() {
+    public int getPrice() {
         return price;
     }
 

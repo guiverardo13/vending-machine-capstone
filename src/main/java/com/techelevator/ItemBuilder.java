@@ -8,9 +8,9 @@ public class ItemBuilder {
 
     private String pathName = "vendingmachine.csv";
 
-    public ItemList buildItem() throws MalformedItemException {
+    public ItemMap buildItem() throws MalformedItemException {
 
-        ItemList itemList = new ItemList();
+        ItemMap itemList = new ItemMap();
 
         File itemFullStock = new File(pathName);
 
@@ -33,7 +33,7 @@ public class ItemBuilder {
 
         String itemKey = lineParts[0];
         String name = lineParts[1];
-        Double price = Double.parseDouble(lineParts[2]);
+        Integer price = Integer.parseInt(lineParts[2]);
         String type = lineParts[3];
 
         return new Item(itemKey,name,price,type);
