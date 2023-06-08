@@ -3,48 +3,48 @@ package com.techelevator;
 public class CoinsAndBills {
 
     // Coins
-    private final double QUARTER = 0.25;
-    private final double DIME = 0.10;
-    private final double NICKEL = 0.5;
-    private final double PENNY = 0.01;
+    private final int QUARTER = 25;
+    private final int DIME = 10;
+    private final int NICKEL = 5;
+    private final int PENNY = 1;
 
     // Bills
-    private final double ONE_DOLLAR_BILL = 1.00;
-    private final double FIVE_DOLLAR_BILL = 5.00;
-    private final double TEN_DOLLAR_BILL = 10.00;
-    private final double TWENTY_DOLLAR_BILL = 20.00;
+    private final int ONE_DOLLAR_BILL = 100;
+    private final int FIVE_DOLLAR_BILL = 500;
+    private final int TEN_DOLLAR_BILL = 1000;
+    private final int TWENTY_DOLLAR_BILL = 2000;
 
     // Getters
 
-    public double getQUARTER() {
+    public int getQUARTER() {
         return QUARTER;
     }
 
-    public double getDIME() {
+    public int getDIME() {
         return DIME;
     }
 
-    public double getNICKEL() {
+    public int getNICKEL() {
         return NICKEL;
     }
 
-    public double getPENNY() {
+    public int getPENNY() {
         return PENNY;
     }
 
-    public double getONE_DOLLAR_BILL() {
+    public int getONE_DOLLAR_BILL() {
         return ONE_DOLLAR_BILL;
     }
 
-    public double getFIVE_DOLLAR_BILL() {
+    public int getFIVE_DOLLAR_BILL() {
         return FIVE_DOLLAR_BILL;
     }
 
-    public double getTEN_DOLLAR_BILL() {
+    public int getTEN_DOLLAR_BILL() {
         return TEN_DOLLAR_BILL;
     }
 
-    public double getTWENTY_DOLLAR_BILL() {
+    public int getTWENTY_DOLLAR_BILL() {
         return TWENTY_DOLLAR_BILL;
     }
 }

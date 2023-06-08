@@ -8,9 +8,9 @@ public class ItemBuilder {
 
     private String pathName = "vendingmachine.csv";
 
-    public ItemList buildItem() throws MalformedItemException {
+    public ItemMap buildItem() throws MalformedItemException {
 
-        ItemList itemList = new ItemList();
+        ItemMap itemMap = new ItemMap();
 
         File itemFullStock = new File(pathName);
 
@@ -19,13 +19,13 @@ public class ItemBuilder {
             while (fileReader.hasNextLine()) {
                 String line = fileReader.nextLine();
                 Item currentItem = parseLine(line);
-                itemList.addItem(currentItem);
+                itemMap.addItem(currentItem);
             }
 
         } catch (FileNotFoundException e) {
             throw new MalformedItemException();
         }
-        return itemList;
+        return itemMap;
     }
 
     private Item parseLine(String line) {
@@ -33,7 +33,7 @@ public class ItemBuilder {
 
         String itemKey = lineParts[0];
         String name = lineParts[1];
-        Double price = Double.parseDouble(lineParts[2]);
+        Integer price = Integer.parseInt(lineParts[2]);
         String type = lineParts[3];
 
         return new Item(itemKey,name,price,type);
