@@ -1,13 +1,14 @@
 package com.techelevator;
 //this will contain a method for making change into proper coin amounts. {i'm excited to try and figure this one out!}
-public class SaleMIGHTNOTNEED {
+public class Sale {
     //Constructor
-    public SaleMIGHTNOTNEED(){
+    public Sale(){
 
     }
 
-    public String getChangeCoins(){
 
+
+    public String getChangeCoins(int changeTotal){
 
 
 
