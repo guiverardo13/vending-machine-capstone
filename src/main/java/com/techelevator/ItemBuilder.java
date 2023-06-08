@@ -10,7 +10,7 @@ public class ItemBuilder {
 
     public ItemMap buildItem() throws MalformedItemException {
 
-        ItemMap itemList = new ItemMap();
+        ItemMap itemMap = new ItemMap();
 
         File itemFullStock = new File(pathName);
 
@@ -19,13 +19,13 @@ public class ItemBuilder {
             while (fileReader.hasNextLine()) {
                 String line = fileReader.nextLine();
                 Item currentItem = parseLine(line);
-                itemList.addItem(currentItem);
+                itemMap.addItem(currentItem);
             }
 
         } catch (FileNotFoundException e) {
             throw new MalformedItemException();
         }
-        return itemList;
+        return itemMap;
     }
 
     private Item parseLine(String line) {

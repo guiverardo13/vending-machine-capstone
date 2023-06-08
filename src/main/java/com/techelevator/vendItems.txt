@@ -1,0 +1,4 @@
+A1|TestA1|3.05|Chip
+B1|TestB1|1.80|Candy
+B2|TestB2|1.50|Candy
+C1|TestCq|1.25|Drink
