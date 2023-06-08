@@ -42,9 +42,8 @@ public class Item {
     }
 
     public boolean isAvailableToPurchase(){ // added boolean to check if item/product is available for sale
-        if(this.quantity >= 1){
-            return true;
-        }
-        return false;
+        return this.quantity >= 1;
     }
+
+
 }

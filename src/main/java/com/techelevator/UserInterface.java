@@ -1,10 +1,15 @@
 package com.techelevator;
 
+import java.util.Scanner;
+
 public class UserInterface {
 
-    // display main menu
+    private final Scanner userInput = new Scanner(System.in);
 
-    public void displayMainMenu(){
-        System.out.println("(1) Display Vending Machine Items");
+    // display main menu
+    public String getMainMenuAnswer(){
+        return userInput.nextLine();
     }
 }
+
+

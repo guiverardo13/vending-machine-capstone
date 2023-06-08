@@ -12,9 +12,9 @@ public class ItemBuilder {
 
         ItemMap itemMap = new ItemMap();
 
-        File itemFullStock = new File(pathName);
+        File inventory = new File(pathName);
 
-        try (Scanner fileReader = new Scanner(itemFullStock)) {
+        try (Scanner fileReader = new Scanner(inventory)) {
 
             while (fileReader.hasNextLine()) {
                 String line = fileReader.nextLine();
@@ -33,9 +33,9 @@ public class ItemBuilder {
 
         String itemKey = lineParts[0];
         String name = lineParts[1];
-        Integer price = Integer.parseInt(lineParts[2]);
+        int price = Integer.parseInt(lineParts[2]);
         String type = lineParts[3];
 
-        return new Item(itemKey,name,price,type);
+        return new Item(itemKey, name, price, type);
     }
 }
