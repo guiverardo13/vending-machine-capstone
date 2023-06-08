@@ -12,6 +12,7 @@ public class ItemMap {
         itemMap.put(newItem.getKeyCode(), newItem);
     }
     public Map<String, Item> getItemMap() {
-        return new HashMap(); // this creates a copy of our list
+        return new HashMap();// this creates a copy of our list
     }
+
 }
