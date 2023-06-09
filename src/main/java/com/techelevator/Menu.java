@@ -16,6 +16,9 @@ public class Menu {
         // display main menu
         userInput.displayMainMenu();
 
+        if(userInput.getUserInput().startsWith("1")){
+            userInput.displayItems();
+        }
 
 
         }
