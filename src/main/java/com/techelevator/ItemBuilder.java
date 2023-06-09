@@ -2,32 +2,33 @@ package com.techelevator;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.Map;
 import java.util.Scanner;
 
 public class ItemBuilder {
 
     private String pathName = "vendingmachine.csv";
 
-    public ItemMap buildItem() throws MalformedItemException {
+    public String buildItem() throws MalformedItemException {
 
         ItemMap map = new ItemMap();
-
+        Item currentItem = null;
         File fileName = new File(pathName);
+        ItemMap itemList = null;
 
         try (Scanner fileReader = new Scanner(fileName)) {
 
             while (fileReader.hasNextLine()) {
                 String line = fileReader.nextLine();
-                Item currentItem = parseLine(line);
+                currentItem = parseLine(line);
                 map.addItem(currentItem);
+
                 System.out.println(currentItem.getKeyCode() + " " + currentItem.getName() + " " + currentItem.getPrice());
             }
 
         } catch (FileNotFoundException e) {
             throw new MalformedItemException();
         }
-        return map; // need to fix this
+        return "";
     }
     private Item parseLine(String line) {
         String[] lineParts = line.split("\\|");
@@ -35,6 +36,6 @@ public class ItemBuilder {
         String name = lineParts[1];
         double price = Double.parseDouble(lineParts[2]);
 
-        return new Item(key,name,price);
+        return new Item(key, name, price);
     }
 }
