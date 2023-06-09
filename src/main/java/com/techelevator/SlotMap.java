@@ -11,7 +11,7 @@ public class SlotMap {
     public void addItem(Slot newSlot){
         slotMap.put(newSlot.getCode(), newSlot); //Should create a map of the String of the KEYCODE and it's SLot
     }
-    public Map<String, Item> getSlotMap() {
+    public Map<String, Slot> getSlotMap() {
         return slotMap;} // this creates a copy of our list
     }
 
