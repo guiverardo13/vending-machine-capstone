@@ -1,28 +1,19 @@
 package com.techelevator;
 
-import jdk.swing.interop.SwingInterOpUtils;
-
-import java.util.ArrayList;
-import java.util.List;
-
 public class Menu {
 
-    UI userInput = new UI();
+    UI ui = new UI();
 
-    public void MainMenuOptions() throws MalformedItemException {
+    public void displayMain() {
 
         // display welcome
-        userInput.displayWelcome();
+        ui.displayWelcome();
         // display main menu
-        userInput.displayMainMenu();
-
-        if(userInput.getUserInput().startsWith("1")){
-            userInput.displayItems();
-        }
+        ui.displayMainMenu();
 
 
-        }
     }
+}
 
 
 
