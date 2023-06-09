@@ -9,7 +9,7 @@
 //    @Test
 //    //Arrange
 //        String pathname = "vendItems.txt";
-//        public ItemBuilder sut = new ItemBuilder();
+//        public Slot sut = new Slot();
 //    //Act
 //        public Map<String, Item> testing = new HashMap<>();
 //        Boolean key1check = testing.("A1");
