@@ -29,6 +29,8 @@ public class UI {
                 "(3) Finish Transaction\n");
     }
 
+    
+
     public void displayItems() throws MalformedItemException {
         ItemBuilder itemList = new ItemBuilder();
 
