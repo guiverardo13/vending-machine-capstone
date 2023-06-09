@@ -16,6 +16,13 @@ public class Item {
         this.keyCode = keyCode;
     }
 
+    public Item(String keyCode, String name, double price, String type){
+        this.keyCode = keyCode;
+        this.name = name;
+        this.price = price;
+        this.type = type;
+    }
+
     public String getName() {
         return this.name;
     }
