@@ -1,26 +1,25 @@
 package com.techelevator;
 
+import java.util.HashMap;
 import java.util.Map;
 
 public class Application {
-
-	// created a field for the User Interface
-	private final Menu menu = new Menu();
+	private final Map<String, Slot> startingMap = new HashMap<>();
 
 	public static void main(String[] args) throws MalformedItemException {
 
-		Application vendingMachine = new Application();
-		vendingMachine.run();
-	}
+	//////while(true)
+		SlotMap slotMap = new SlotMap();
+		UI ui = new UI();
+		Menu menu = new Menu();
 
-	private void run() throws MalformedItemException {
-
-		menu.MainMenuOptions();
-
-	}
+		slotMap.setUpMachine();
+		menu.displayMain();
 
 	}
 
+
+}
 
 
 

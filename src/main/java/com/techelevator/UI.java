@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class UI {
     private final Scanner userInput = new Scanner(System.in);
     private String usersResponse;
-   private Slot itemList = new Slot();
+
 
 
     public String getUserInput(){
@@ -32,11 +32,7 @@ public class UI {
                 "(3) Finish Transaction\n");
     }
 
-    public void displayItems() throws MalformedItemException {
-        Slot itemList = new Slot();
 
-        System.out.println(itemList.buildItem());
-    }
 
     public void displayIncorrect(){
         System.out.println("Invalid entry! Please try again.");
