@@ -29,6 +29,10 @@ public class SlotMap {
 
                 slotMap.put(slot.currentItem.getKeyCode(), slot);
             }
+            for (String key : slotMap.keySet()){
+                System.out.println(slotMap.get(key).currentItem.getName());
+            }
+
         } catch (FileNotFoundException e) {
             throw new MalformedItemException();
         }
