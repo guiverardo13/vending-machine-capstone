@@ -1,43 +1,44 @@
 package com.techelevator;
 
+import java.util.Map;
+
 public class Application {
 
 	// created a field for the User Interface
-	private UserInterface ui = new UserInterface();
+	private UI userInput = new UI();
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws MalformedItemException {
 
 		Application vendingMachine = new Application();
-		vendingMachine.runMainMenu();
+		vendingMachine.run();
 	}
 
-	private void runMainMenu() {
-		// we will run the main menu
+	private void run() throws MalformedItemException {
+		// display welcome
+		userInput.displayWelcome();
+		// display main menu
+		userInput.displayMainMenu();
+		// get userInput
+		String answer = userInput.getUserInput();
 
-		System.out.println("Welcome to Vendo-Matic 800!");
-		System.out.println(" ");
-
-		Menu mainMenu = new Menu();
-
-		System.out.println("(" + "1" + ") " + mainMenu.getMAIN_MENU_DISPLAY_ITEMS());
-		System.out.println("(" + "2" + ") " + mainMenu.getMAIN_MENU_PURCHASE());
-		System.out.println("(" + "3" + ") " + mainMenu.getMAIN_MENU_EXIT());
-
-		System.out.println(" ");
-		System.out.println("Please enter 1, 2, or 3.");
-
-
-		if (ui.getMainMenuAnswer().contains("1")) {
-			//opens list of items
-			ItemMap map = new ItemMap();
-			System.out.println("Here is the list of items");
-			System.out.println(map.getItemMap());
-		} else if (ui.getMainMenuAnswer().contains("2")){
-				System.out.println("here is purchase");
+		if (answer.equals(" ")) {
+			System.out.println("Not a valid selection. Please try again!");
 		}
-					System.out.println("Here is the Purchase class");
+		// still need to test for other inputs
+
+			if (answer.contains("1")) {
+				userInput.displayItems();
+
+			} else if (answer.contains("2")) {
+				System.out.println("purchase");
+				// call display purchase menu
+
+			} else if (answer.contains("3")) {
+				System.out.println("exit");
+				// exit program
+			}
 		}
-}
+	}
 
 
 

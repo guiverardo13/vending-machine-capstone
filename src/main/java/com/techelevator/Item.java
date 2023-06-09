@@ -6,26 +6,25 @@ public class Item {
 
     private String name;
     private String type;
-    private int price;
+    private double price;
     private String keyCode;
     private int quantity = 5; // changed howMany to quantity
 
-    public Item(String keyCode, String name, int price, String type) {
+    public Item(String keyCode, String name, double price) {
         this.name = name;
-        this.type = type;
         this.price = price;
         this.keyCode = keyCode;
     }
 
     public String getName() {
-        return name;
+        return this.name;
     }
 
     public String getType() {
         return type;
     }
 
-    public int getPrice() {
+    public double getPrice() {
         return price;
     }
 
