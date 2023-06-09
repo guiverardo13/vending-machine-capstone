@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class UI {
     private final Scanner userInput = new Scanner(System.in);
     private String usersResponse;
-   private ItemBuilder itemList = new ItemBuilder();
+   private Slot itemList = new Slot();
 
 
     public String getUserInput(){
@@ -33,7 +33,7 @@ public class UI {
     }
 
     public void displayItems() throws MalformedItemException {
-        ItemBuilder itemList = new ItemBuilder();
+        Slot itemList = new Slot();
 
         System.out.println(itemList.buildItem());
     }
