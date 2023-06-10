@@ -53,7 +53,7 @@ public class Menu {
             if (userInput.equals("1")) {
                 ui.displayFeedMoney();
                 userInput = ui.getUserInput();
-                ////I want to put the purchas logic into the PurchaseOption Class
+                ////I want to put the purchase logic into the PurchaseOption Class
             }
             if (userInput.equals("2")) {
                 ///purchase logic
