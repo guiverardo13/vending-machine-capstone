@@ -72,6 +72,7 @@ public class Menu {
                     ui.displayStock();
                     ui.displaySelectProduct();
                     ////Call a method from purchaseoptionsCLASS
+                    purchaseOption.insertCash();
                     purchaseOption.selectProduct();
 
                     break;

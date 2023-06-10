@@ -9,10 +9,11 @@ import java.text.NumberFormat;
 public class UI {
     private final Scanner userInput = new Scanner(System.in);
 
+    PurchaseOption purchaseInfo;
     public UI() throws MalformedItemException {
+         purchaseInfo = new PurchaseOption();
     }
 
-    private final PurchaseOption purchaseInfo = new PurchaseOption();
     private SlotMapClass slotMapClass = new SlotMapClass();
     private Slot item;
 
@@ -80,6 +81,10 @@ public class UI {
         System.out.println("\n");
     }
 
+    ////SOLD OUT!!!
+    public void displaySoldOut(){
+        System.out.println("\n>>> SOLD OUT <<<\n");
+    }
     //        System.out.println(stockMapCopy.get("A1").currentItem.getName());
 
     ////INVALID ENTRY
