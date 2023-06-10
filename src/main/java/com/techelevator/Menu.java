@@ -65,13 +65,15 @@ public class Menu {
                     ui.displayFeedMoney();
                     System.out.println("====more to come====");
                     ////Call a method from purchase options CLASS
+
+
                     break;
                 case "2":
                     ui.displayStock();
                     ui.displaySelectProduct();
 
                     ////Call a method from purchase options CLASS
-                    purchaseOption.PurchaseOption();
+                    purchaseOption.selectProduct();
 
                     break;
                 case "3":
