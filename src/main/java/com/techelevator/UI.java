@@ -14,7 +14,9 @@ public class UI {
     private final Scanner userInput = new Scanner(System.in);
     public UI() throws MalformedItemException{
     }
-    private PurchaseOption purchaseInfo = new PurchaseOption();
+    private final PurchaseOption purchaseInfo = new PurchaseOption();
+
+    private Slot item;
 
     ///USER INPUT GETTER
     public String getUserInput() {
@@ -99,6 +101,9 @@ public class UI {
 ////SELECT PRODUCT TO TRY AND BUY
     public void displaySelectProduct() {
         System.out.println("Enter the KeyCode of the Item you would like to buy:");
+        System.out.println(" ");
+        getUserInput();
+
     }
 
 ////FINISH TRANSACTION AND FINISH PRINTWRITING RECEIPT.
@@ -108,6 +113,25 @@ public class UI {
         //**TOTAL SALES** $11.05
     public void FinishTransaction() {
 
+    }
+
+    public void dispenseItem(){
+        // dispense prints item name, cost, and money remaining
+        String itemName = item.currentItem.getName();
+        int itemCost = Integer.parseInt(item.currentItem.getPrice());
+        int remainingBalance = purchaseInfo.getBalance() - itemCost;
+
+        System.out.println(itemName + itemCost + remainingBalance);
+
+            if (item.currentItem.getType().equals("Chip")){
+                System.out.println(item.currentItem.getSound());
+            } else if (item.currentItem.getType().equals("Candy")){
+                System.out.println(item.currentItem.getSound());
+            } else if (item.currentItem.getType().equals("Drink")){
+                System.out.println(item.currentItem.getSound());
+            } else if (item.currentItem.getType().equals("Gum")){
+                System.out.println(item.currentItem.getSound());
+            }
     }
 }
 

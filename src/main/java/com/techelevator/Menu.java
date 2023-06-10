@@ -66,12 +66,14 @@ public class Menu {
                     ////Call a method from purchase options CLASS
                     break;
                 case "2":
+                    ui.displayStock();
                     ui.displaySelectProduct();
+
                     ////Call a method from purchase options CLASS
 
                     break;
                 case "3":
-                    System.out.println("--going back to main menue--");
+                    System.out.println("--going back to main menu--");
                     isReadyToQuit = true;
                     break;
                 default:

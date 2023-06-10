@@ -18,8 +18,6 @@ public class Application {
 			System.out.println("testing something else"); //leave for now
 		}while (true);
 	}
-
-
 }
 
 
