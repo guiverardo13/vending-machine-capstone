@@ -1,4 +1,5 @@
 package com.techelevator;
+import java.text.DecimalFormat;
 import java.util.Map;
 import java.util.Scanner;
 import java.text.NumberFormat;
@@ -40,12 +41,14 @@ public class UI {
                         "(3) Exit\n\n");
     }
 
-
     ///DISPLAY PURCHASE MENU
     public void displayPurchaseMenu(int balance) {
+       // DecimalFormat dFormat = new DecimalFormat();
+        double moneys = (double) balance / 100;
 
-        String formattedAmount = NumberFormat.getCurrencyInstance().format(balance);
-        System.out.println("Current Money Provided: " + formattedAmount + "\n");
+        NumberFormat formatter = NumberFormat.getCurrencyInstance();
+        String moneyString = formatter.format(moneys);
+        System.out.println("Current Money Provided: " + moneyString + "\n");
         System.out.println(
                 "Please select (1)(2)or(3) from the menu options:\n\n" +
                         "(1) Feed Money\n" +
@@ -116,6 +119,12 @@ public class UI {
     public void displayNotEnoughFunds(){
         System.out.println("\nSorry!!! You do not have enough funds in your balance.\n");
     }
+
+    ////BILL ERROR
+    public void displayBillError(){
+        System.out.println("\nInvalid entry!!! Try again.\n");
+    }
+
 
     ////FINISH TRANSACTION AND FINISH PRINTWRITING RECEIPT.
     //Chiclets|1 <---WE CAN GET THIS NUMBER BY

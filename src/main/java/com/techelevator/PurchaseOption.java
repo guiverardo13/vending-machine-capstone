@@ -5,6 +5,7 @@ public class PurchaseOption {
 
     private SlotMapClass slotMapClass = new SlotMapClass();
     private Map<String, Slot> slotMap = slotMapClass.getSlotMap();
+    private CoinsAndBills coinsAndBills = new CoinsAndBills();
     public int balance; //in pennies
     private int changeTotal;
     private boolean isValidInput = false;
@@ -27,9 +28,32 @@ public class PurchaseOption {
 
     //////Option 1) feed money:
     public void insertCash() {
-        System.out.println(balance);//this shows pennies
-        // we also should add a print to file
-        balance = balance + 500;
+        ui.displayFeedMoney();
+        String userInput = ui.getUserInput();
+
+        switch (userInput){
+            case "1":
+                this.balance += 100;
+                break;
+            case "5":
+                this.balance += 500;
+                break;
+            case "10":
+                balance += 1000;
+                break;
+            case "20":
+                balance += 2000;
+                break;
+            case "50":
+                balance += 5000;
+                break;
+            case "100":
+                balance += 10000;
+                break;
+            default:
+                ui.displayBillError();
+                break;
+        }
         System.out.println(balance);
     }
 

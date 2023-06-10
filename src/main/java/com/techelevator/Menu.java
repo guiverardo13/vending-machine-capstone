@@ -63,9 +63,8 @@ public class Menu {
             switch (userInput){
                 case "1":
                     ui.displayFeedMoney();
-                    System.out.println("====more to come====");
                     ////Call a method from purchase options CLASS
-
+                    ui.getUserInput();
 
                     break;
                 case "2":
