@@ -15,13 +15,11 @@ public class Menu {
 
 
     public void displayMain() {
-
-        // display welcome
-        ui.displayWelcome();
+        System.out.println("\n...\n");
         // display main menu
         ui.displayMainMenu();
-
         userInput = ui.getUserInput();
+
         //stockMapCopy = slotMap.getSlotMap();
 
         //check that it's valid
