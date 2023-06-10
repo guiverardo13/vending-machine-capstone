@@ -12,6 +12,7 @@ public class Menu {
     private SlotMapClass slotMap = new SlotMapClass();
     private Map<String, Slot> stockMapCopy;
     String name;
+    PurchaseOption purchaseOption = new PurchaseOption();
 
 
 
@@ -70,6 +71,7 @@ public class Menu {
                     ui.displaySelectProduct();
 
                     ////Call a method from purchase options CLASS
+                    purchaseOption.PurchaseOption();
 
                     break;
                 case "3":
