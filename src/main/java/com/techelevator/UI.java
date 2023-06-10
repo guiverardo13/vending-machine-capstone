@@ -9,9 +9,8 @@ import java.text.NumberFormat;
 public class UI {
     private final Scanner userInput = new Scanner(System.in);
 
-    PurchaseOption purchaseInfo;
+
     public UI() throws MalformedItemException {
-         purchaseInfo = new PurchaseOption();
     }
 
     private SlotMapClass slotMapClass = new SlotMapClass();
@@ -43,8 +42,9 @@ public class UI {
 
 
     ///DISPLAY PURCHASE MENU
-    public void displayPurchaseMenu() {
-        String formattedAmount = NumberFormat.getCurrencyInstance().format(purchaseInfo.getBalance()/100);
+    public void displayPurchaseMenu(int balance) {
+
+        String formattedAmount = NumberFormat.getCurrencyInstance().format(balance);
         System.out.println("Current Money Provided: " + formattedAmount + "\n");
         System.out.println(
                 "Please select (1)(2)or(3) from the menu options:\n\n" +

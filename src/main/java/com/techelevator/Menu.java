@@ -17,7 +17,7 @@ public class Menu {
 
 
 
-    public void displayMain() throws MalformedItemException {
+    public void displaysMain() throws MalformedItemException {
 
         boolean isReadyToQuit = false;
         do {
@@ -33,7 +33,7 @@ public class Menu {
                     ui.displayStock();
                     break;
                 case "2":
-                    this.displayPurchaseMenu();
+                    this.displaysPurchaseMenu();
                     userInput = ui.getUserInput();
 
                     break;
@@ -51,11 +51,11 @@ public class Menu {
 
 
 
-    public void displayPurchaseMenu() throws MalformedItemException {
+    public void displaysPurchaseMenu() throws MalformedItemException {
         boolean isReadyToQuit = false;
         do{
             System.out.println("\n...\n");
-            ui.displayPurchaseMenu();
+            ui.displayPurchaseMenu(purchaseOption.balance);
             userInput = ui.getUserInput();
             if (userInput.equals("3")){
                 isReadyToQuit = true;
