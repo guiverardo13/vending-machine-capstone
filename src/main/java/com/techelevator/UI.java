@@ -7,7 +7,6 @@ import java.util.Scanner;
 public class UI {
     private final Scanner userInput = new Scanner(System.in);
     private String usersResponse;
-    private SlotMap slotMap = new SlotMap();
 
 
     public String getUserInput(){
@@ -34,24 +33,17 @@ public class UI {
                 "(3) Finish Transaction\n");
     }
 
-    Map<String, Slot> stockMap = new HashMap<>();
-    public void displayStock(){
-        stockMap = slotMap.getSlotMap();
-        //A1 PotatoCrisps 3.05
-        String slotCode = null;
-        String choiceName;
-        Double price;
-        System.out.println(stockMap.get("A1"));
-        
-        for (String key : stockMap.keySet()) {
+    SlotMapClass slotMap = new SlotMapClass();
+    Map<String, Slot> stockMapCopy = new HashMap<>(slotMap.getSlotMap());
+    String name;
+    public void displayStock(Map<String, Slot> slotMap) {
 
-           // choiceName = stockMap.get(stockMap).currentItem.getName();
-           // price = stockMap.get(stockMap).currentItem.getPrice();
-
+        for (String key: slotMap.keySet()){
             System.out.println(key);
         }
-        
     }
+
+
 
     public void displayIncorrect(){
         System.out.println("Invalid entry! Please try again.");

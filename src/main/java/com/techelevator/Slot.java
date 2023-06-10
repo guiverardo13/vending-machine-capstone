@@ -15,7 +15,7 @@ public class Slot {
         lineParts = line.split("\\|");
         String key = lineParts[0];
         String name = lineParts[1];
-        double price = Double.parseDouble(lineParts[2]);
+        String price = lineParts[2];
         String type = lineParts[3];
 
         if (type.equals("Chip")) {
@@ -30,6 +30,9 @@ public class Slot {
             inventory = STARTING_INVENTORY;
         }
 
+    }
+    public String[] getLineParts(){
+        return lineParts;
     }
 
 }
