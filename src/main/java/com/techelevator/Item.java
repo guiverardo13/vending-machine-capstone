@@ -6,24 +6,21 @@ public abstract class Item {
 
     private String name;
     private String type;
-    private double price;
+    private String price;
     private String keyCode;
     private String sound;
 
-    public Item(String keyCode, String name, double price) {
+    public Item(String keyCode, String name, String price) {
         this.name = name;
         this.price = price;
         this.keyCode = keyCode;
     }
 
     public String getName() {return this.name;}
-
     public String getType() {return type;}
-
-    public double getPrice() {
+    public String getPrice() {
         return price;
     }
-
     public String getKeyCode() {
         return keyCode;
     }
@@ -34,7 +31,7 @@ public abstract class Item {
 }
 
 //TRASH:
-//    public Item(String keyCode, String name, double price, String type){
+//    public Item(String keyCode, String name, Stringble price, String type){
 //        this.keyCode = keyCode;
 //        this.name = name;
 //        this.price = price;
