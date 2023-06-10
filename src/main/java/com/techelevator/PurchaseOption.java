@@ -2,27 +2,16 @@ package com.techelevator;
 
 public class PurchaseOption {
 
-
-
-    UI ui = new UI();
     private int balance = 0; //current money provided (in whole dollar amounts/pennies**)
     private int changeTotal;
 
-    public PurchaseOption() throws MalformedItemException {
 
+    public PurchaseOption() {
         // if user input equals a valid key code, call dispense method from UI.
+        // dispense method prints name, cost and remaining balance and displays sound.
 
 
-        }
-        
-
-
-
-
-
-
-
-
+    }
 
     ////do while !=3 && while !valid input number
     ////do{sout the menu option from ui class
@@ -42,8 +31,18 @@ public class PurchaseOption {
     }
 //////Option 2) Select Item
     public String selectProduct(String keyCode){
-        return "(valid key code)";
+        Slot key = new Slot(keyCode);
+        String validKey = key.currentItem.getKeyCode();
+
+
+        return validKey;
     }
+
+
+
+
+
+
 //////Option 3) Finish Transaction
     public void finishTransaction(){}
         ///returns to last menu. somehow.
@@ -53,10 +52,6 @@ public class PurchaseOption {
         return balance;
     }
 
-    public String validKeyCode(){
-
-        return null;
-    }
 
 
 

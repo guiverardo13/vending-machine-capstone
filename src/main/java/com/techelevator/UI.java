@@ -115,6 +115,8 @@ public class UI {
 
     }
 
+
+
     public void dispenseItem(){
         // dispense prints item name, cost, and money remaining
         String itemName = item.currentItem.getName();
@@ -133,5 +135,13 @@ public class UI {
                 System.out.println(item.currentItem.getSound());
             }
     }
+
+    public void validKeyCode(){
+
+
+    }
+
+
+
 }
 
