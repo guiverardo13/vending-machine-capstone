@@ -1,12 +1,8 @@
 package com.techelevator;
-import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Scanner;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatterBuilder;
-import java.time.format.DateTimeFormatter;
 import java.text.NumberFormat;
-import java.util.Locale;
+
 
 ////This is where we will log the actions to the txt file.//we could either do it as the things happen or make an array of Strings that we could then printwrite to txt file
 
@@ -17,7 +13,7 @@ public class UI {
     }
 
     private final PurchaseOption purchaseInfo = new PurchaseOption();
-
+    private SlotMapClass slotMapClass = new SlotMapClass();
     private Slot item;
 
     ///USER INPUT GETTER
@@ -44,11 +40,10 @@ public class UI {
                         "(3) Exit\n\n");
     }
 
-    NumberFormat nfUS = NumberFormat.getCurrencyInstance(Locale.US);
 
     ///DISPLAY PURCHASE MENU
     public void displayPurchaseMenu() {
-        String formattedAmount = NumberFormat.getCurrencyInstance().format(purchaseInfo.getBalance());
+        String formattedAmount = NumberFormat.getCurrencyInstance().format(purchaseInfo.getBalance()/100);
         System.out.println("Current Money Provided: " + formattedAmount + "\n");
         System.out.println(
                 "Please select (1)(2)or(3) from the menu options:\n\n" +
@@ -64,7 +59,7 @@ public class UI {
     String price;
     int amtLeft;
     String inventoryLeft = "";
-    Map<String, Slot> stockMapCopy = new LinkedHashMap<>(slotMap.getSlotMap());
+    Map<String, Slot> stockMapCopy = slotMapClass.getSlotMap();
 
     ////DISPLAY INVENTORY AND REMAINING AMOUNTS
     public void displayStock() {
@@ -109,7 +104,6 @@ public class UI {
     public void displaySelectProduct() {
         System.out.println("Enter the KeyCode of the Item you would like to buy:");
         System.out.println(" ");
-        getUserInput();
 
     }
 

@@ -3,7 +3,7 @@ package com.techelevator;
 import java.util.Map;
 
 public class Menu {
-
+    ////CONSTRUCTOR
     public Menu() throws MalformedItemException {
     }
 
@@ -17,7 +17,7 @@ public class Menu {
 
 
 
-    public void displayMain() {
+    public void displayMain() throws MalformedItemException {
 
         boolean isReadyToQuit = false;
         do {
@@ -33,8 +33,8 @@ public class Menu {
                     ui.displayStock();
                     break;
                 case "2":
-                    userInput = ui.getUserInput();
                     this.displayPurchaseMenu();
+                    userInput = ui.getUserInput();
 
                     break;
                 case "3":
@@ -51,7 +51,7 @@ public class Menu {
 
 
 
-    public void displayPurchaseMenu() {
+    public void displayPurchaseMenu() throws MalformedItemException {
         boolean isReadyToQuit = false;
         do{
             System.out.println("\n...\n");
@@ -71,8 +71,7 @@ public class Menu {
                 case "2":
                     ui.displayStock();
                     ui.displaySelectProduct();
-
-                    ////Call a method from purchase options CLASS
+                    ////Call a method from purchaseoptionsCLASS
                     purchaseOption.selectProduct();
 
                     break;
