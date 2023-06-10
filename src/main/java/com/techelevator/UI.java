@@ -113,6 +113,11 @@ public class UI {
 
     }
 
+    ////NOT ENOUGH FUNDS
+    public void displayNotEnoughFunds(){
+        System.out.println("\nSorry!!! You do not have enough funds in your balance.\n");
+    }
+
     ////FINISH TRANSACTION AND FINISH PRINTWRITING RECEIPT.
     //Chiclets|1 <---WE CAN GET THIS NUMBER BY
     //Triplemint|0      SUBTRACTING AMT LEFT BY 5.
@@ -121,6 +126,11 @@ public class UI {
     public void FinishTransaction() {
 
     }
+
+
+
+
+
 
 
 }

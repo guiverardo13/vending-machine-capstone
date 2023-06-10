@@ -9,7 +9,7 @@ public class Application {
 	public static void main(String[] args) throws MalformedItemException {
 
 		do {
-			SlotMapClass slotMap = new SlotMapClass();//this should set up new machine
+			SlotMapClass slotMap = new SlotMapClass("");//this should set up new machine
 			UI ui = new UI();
 			Menu menu = new Menu();
 			ui.displayWelcome();

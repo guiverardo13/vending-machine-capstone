@@ -12,10 +12,14 @@ public class SlotMapClass {
     String line;
     Map<String,Slot> slotMap = new LinkedHashMap<>();
 
-    public SlotMapClass() throws MalformedItemException {
+    public SlotMapClass(String falseString) throws MalformedItemException {
         this.setUpMachine();
     }
     public SlotMapClass(){
+    }
+
+    public SlotMapClass(){
+
     }
 
     private void setUpMachine() throws MalformedItemException {

@@ -3,7 +3,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Logger {
-    private String fileName = "log.txt";
+    private final String fileName = "log.txt";
     private boolean deleteFile = new File(fileName).delete();
     private File logFile = new File(fileName);
 
@@ -30,7 +30,7 @@ public class Logger {
         try (Writer fileWriter = new FileWriter(logFile, true);
              PrintWriter print = new PrintWriter(fileWriter)) {
             print.write(logString + "\n");
-        } catch (IOException e1) {
+        } catch (IOException e) {
         }
         return logString;
 
