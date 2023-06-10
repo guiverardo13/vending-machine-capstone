@@ -4,11 +4,16 @@ import java.util.Map;
 
 public class Menu {
 
+    public Menu() throws MalformedItemException {
+    }
+
     UI ui = new UI();
     private String userInput;
     private SlotMapClass slotMap = new SlotMapClass();
     private Map<String, Slot> stockMapCopy;
     String name;
+
+
     public void displayMain() {
 
         // display welcome
@@ -17,14 +22,14 @@ public class Menu {
         ui.displayMainMenu();
 
         userInput = ui.getUserInput();
-        stockMapCopy = slotMap.getSlotMap();
+        //stockMapCopy = slotMap.getSlotMap();
 
         //check that it's valid
         //see if it equals 1 , 2 , 3 with if statements
         if (userInput.equals("1")){
-            ui.displayStock(stockMapCopy);
+            ui.displayStock();
         } else if (userInput.equals("2")) {
-            //menu.displayPurchaseMenu();
+            ui.displayPurchaseMenu();
         } else if (userInput.equals("3")){
             ///
         }

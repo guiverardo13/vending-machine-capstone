@@ -1,9 +1,5 @@
 package com.techelevator;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.util.Scanner;
-
 public class Slot {
 
     private final int STARTING_INVENTORY = 5;
@@ -26,13 +22,12 @@ public class Slot {
             currentItem = new Gum(key, name, price);
         } else if (type.equals("Candy")) {
             currentItem = new Candy(key, name, price);
-
-            inventory = STARTING_INVENTORY;
         }
+            inventory = STARTING_INVENTORY;
 
     }
-    public String[] getLineParts(){
-        return lineParts;
-    }
+//    public String[] getLineParts(){
+//        return lineParts;
+//    }
 
 }
