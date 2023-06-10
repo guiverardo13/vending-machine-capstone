@@ -1,82 +1,92 @@
 package com.techelevator;
-
-import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class PurchaseOption {
 
-    private Menu menu;
-    private SlotMapClass slotMapClass;
-    private Map<String, Slot> slotMap = new LinkedHashMap<>();
-    private UI ui;
-    private int balance; //current money provided (in whole dollar amounts/pennies**)
+    private SlotMapClass slotMapClass = new SlotMapClass();
+    private Map<String, Slot> slotMap = slotMapClass.getSlotMap();
+    public int balance; //in pennies
     private int changeTotal;
     private boolean isValidInput = false;
+    private String userInput;
+    UI ui = new UI();
 
+    public PurchaseOption() throws MalformedItemException {
 
-    public  PurchaseOption() {
-        // if user input equals a valid key code, call dispense method from UI.
-        // dispense method prints name, cost and remaining balance and displays sound.
-
-
-
-
-
-
-
-
-        ////do while !=3 && while !valid input number
-        ////do{sout the menu option from ui class
-        //       take customer choices as numbers}
     }
 
 
+    // if user input equals a valid key code, call dispense method from UI.
+    // dispense method prints name, cost and remaining balance and displays sound.
+
+
+    ////do while !=3 && while !valid input number
+    ////do{sout the menu option from ui class
+    //       take customer choices as numbers}
 
 
     //////Option 1) feed money:
-    public void insertCash(int dollars) {
-        balance += dollars * 100; //this shows pennies
+    public void insertCash() {
+        System.out.println(balance);//this shows pennies
         // we also should add a print to file
+        balance = balance + 500;
+        System.out.println(balance);
     }
 
+        //ui = new UI();
 
     //////Option 2) Select Item
-    public void selectProduct() {
-        slotMap = slotMapClass.getSlotMap();
+    public void selectProduct() throws MalformedItemException {
+
+//        slotMap = slotMapClass.getSlotMap();
         String price;
-        String userInput;
         // make do while loop to check valid input
-       do {
-           userInput = ui.getUserInput();
-               if(slotMap.containsKey(userInput)){
-                   isValidInput = true;
-               } else {
-                   ui.displayIncorrect();
-               }
+        do {
+            userInput = ui.getUserInput();
+            if (slotMap.containsKey(userInput)) {
+                isValidInput = true;
+                System.out.println("test1");
+            } else {
+                ui.displayIncorrect();
+                System.out.println("test2");
+            }
+        } while (!isValidInput);
 
-       } while (!isValidInput);
-       price = slotMap.get(userInput).currentItem.getPrice();
-       Integer priceI = Integer.parseInt(price.replace(".", ""));
-       priceI = priceI * 100;
-       if(balance >= priceI){
-           if(slotMap.get(userInput).inventory > 0){
-               balance -= priceI;
-               slotMapClass.takeOneOut(userInput);
-           }
-           ui.displayNotEnoughFunds();
-       }
+        System.out.println("test3");
+
+        price = slotMap.get(userInput).currentItem.getPrice();
+        Integer priceI = Integer.parseInt(price.replace(".", ""));
+
+        System.out.println(priceI + "<-----TestPRICE");
+        System.out.println(slotMap.get(userInput).inventory + "<----testSTOCK");
+        System.out.println(balance + "<----testBALANCE");
+        if (balance >= priceI) {
+            if (slotMap.get(userInput).inventory > 0) {
+                balance -= priceI;
+                System.out.println(balance + "<----testBALANCE");
+                slotMapClass.takeOneOut(userInput);
+                System.out.println(slotMap.get(userInput).inventory + "<----testSTOCK");
+                System.out.println("test4");
+            } else if (balance < priceI) {
+                ui.displayNotEnoughFunds();
+                System.out.println("test5");
+            } else if (slotMap.get(userInput).inventory <= 0) {
+                ui.displaySoldOut();
+            }
+        }
+
     }
-
 
     //////Option 3) Finish Transaction
-    public void finishTransaction() {
+    public void finishTransaction () {
     }
-    ///returns to last menu. somehow.
+        ///returns to last menu. somehow.
 
 
-    public int getBalance() {
+    public int getBalance () {
         return balance;
     }
+
 }
 
 
