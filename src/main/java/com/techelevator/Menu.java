@@ -66,7 +66,7 @@ public class Menu {
                     ////Call a method from purchase options CLASS
                     break;
                 case "2":
-                    ui.displaySelectProduct();
+                    ui.displaySelectProduct();1
                     ////Call a method from purchase options CLASS
 
                     break;
