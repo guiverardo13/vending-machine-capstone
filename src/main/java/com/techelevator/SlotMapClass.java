@@ -10,7 +10,7 @@ public class SlotMapClass {
 ////<keycode , SLOT>
     String pathName;
     String line;
-    Map<String,Slot> slotMap = new LinkedHashMap<>();
+    static Map<String,Slot> slotMap = new LinkedHashMap<>();
 
     public SlotMapClass(String falseString) throws MalformedItemException {
         this.setUpMachine();

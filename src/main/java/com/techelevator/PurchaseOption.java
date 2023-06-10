@@ -9,7 +9,7 @@ public class PurchaseOption {
     private SlotMapClass slotMapClass;
     private Map<String, Slot> slotMap = new LinkedHashMap<>();
     private UI ui;
-    private int balance = 0; //current money provided (in whole dollar amounts/pennies**)
+    private int balance; //current money provided (in whole dollar amounts/pennies**)
     private int changeTotal;
     private boolean isValidInput = false;
 
