@@ -40,7 +40,7 @@ public class UI {
     ///DISPLAY PURCHASE MENU
     public void displayPurchaseMenu() {
         System.out.println("Current Money Provided: " + nfUS. getBalance());
-        System.out.println(
+       System.out.println(
                 "Please select (1)(2)or(3) from the menu options:\n\n" +
                         "(1) Feed Money\n" +
                         "(2) Select Product\n" +

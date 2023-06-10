@@ -8,13 +8,22 @@ public class PurchaseOption {
 
     public PurchaseOption(){
 
+
+
+
     }
     ////do while !=3 && while !valid input number
     ////do{sout the menu option from ui class
     //       take customer choices as numbers}
+
+
+
+
+
 //////Option 1) feed money:
     public void insertCash(int dollars){
         balance += dollars * 100; //this shows pennies
+        // maybe we should add
     }
 //////Option 2) Select Item
     public String selectProduct(String keyCode){
