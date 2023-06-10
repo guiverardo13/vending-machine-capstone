@@ -15,6 +15,8 @@ public class SlotMapClass {
     public SlotMapClass() throws MalformedItemException {
         this.setUpMachine();
     }
+    public SlotMapClass(){
+    }
 
     private void setUpMachine() throws MalformedItemException {
         pathName = "vendingmachine.csv";
