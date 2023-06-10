@@ -15,28 +15,58 @@ public class Menu {
 
 
     public void displayMain() {
-        System.out.println("\n...\n");
-        // display main menu
-        ui.displayMainMenu();
-        userInput = ui.getUserInput();
 
-        //stockMapCopy = slotMap.getSlotMap();
+        boolean isReadyToQuit = false;
+        do {
 
-        //check that it's valid
-        //see if it equals 1 , 2 , 3 with if statements
-        if (userInput.equals("1")){
-            ui.displayStock();
-        } else if (userInput.equals("2")) {
-            ui.displayPurchaseMenu();
-        } else if (userInput.equals("3")){
-            ///
-        }
+            System.out.println("\n...\n");
+            ui.displayMainMenu();
+            userInput = ui.getUserInput();
+            if (userInput.equals("3")){
+                isReadyToQuit = true;
+            }
+            switch (userInput){
+                case "1":
+                    ui.displayStock();
+                    break;
+                case "2":
+                    userInput = ui.getUserInput();
+                    this.displayPurchaseMenu();
+                    break;
+                case "3":
+                    isReadyToQuit = true;
+                    ui.displayGoodbye();
+                    break;
+                default:
+                    ui.displayIncorrect();
+                    break;
+            }
+
+        }while (!isReadyToQuit);
 
     }
-//    public void displayPurchaseMenu() {
-//            ui.displayPurchaseMenu();
-//            //another if stuff + loop
-//    }
+    public void displayPurchaseMenu() {
+        boolean isReadyToQuit = false;
+        System.out.println("\n...\n");
+        ui.displayPurchaseMenu();
+        while (!isReadyToQuit) {
+            if (userInput.equals("1")) {
+                ui.displayFeedMoney();
+                userInput = ui.getUserInput();
+                ////I want to put the purchas logic into the PurchaseOption Class
+            }
+            if (userInput.equals("2")) {
+                ///purchase logic
+                System.out.println("trying to buy!"); //for now
+            }
+            if (userInput.equals("3")) {
+                isReadyToQuit = true;
+
+            }
+        }
+
+
+    }
 }
 
 

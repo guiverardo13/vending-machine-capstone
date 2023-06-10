@@ -12,7 +12,7 @@ public class Application {
 		SlotMapClass slotMap = new SlotMapClass();//this should set up new machine
 		UI ui = new UI();
 		Menu menu = new Menu();
-
+		ui.displayWelcome();
 		menu.displayMain(); // and get user input here to use in loop <<<<MAYBE NO LOOP IN MAIN APP..idk
 	}
 
