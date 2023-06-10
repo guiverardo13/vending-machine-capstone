@@ -12,8 +12,10 @@ import java.util.Locale;
 
 public class UI {
     private final Scanner userInput = new Scanner(System.in);
-    public UI() throws MalformedItemException{
+
+    public UI() throws MalformedItemException {
     }
+
     private final PurchaseOption purchaseInfo = new PurchaseOption();
 
     private Slot item;
@@ -27,10 +29,12 @@ public class UI {
     public void displayWelcome() {
         System.out.println("Welcome to the Vendo-o-Matic 800!\n");
     }
+
     ///GOODBYE!!!
-    public void displayGoodbye(){
+    public void displayGoodbye() {
         System.out.println("\nHave a Great Day! Goodbye!\n");
     }
+
     ///DISPLAY MAIN MENU
     public void displayMainMenu() {
         System.out.println(
@@ -40,17 +44,19 @@ public class UI {
                         "(3) Exit\n\n");
     }
 
-    NumberFormat nfUS=NumberFormat.getCurrencyInstance(Locale.US);
+    NumberFormat nfUS = NumberFormat.getCurrencyInstance(Locale.US);
+
     ///DISPLAY PURCHASE MENU
     public void displayPurchaseMenu() {
         String formattedAmount = NumberFormat.getCurrencyInstance().format(purchaseInfo.getBalance());
-        System.out.println("Current Money Provided: "+ formattedAmount + "\n");
+        System.out.println("Current Money Provided: " + formattedAmount + "\n");
         System.out.println(
                 "Please select (1)(2)or(3) from the menu options:\n\n" +
                         "(1) Feed Money\n" +
                         "(2) Select Product\n" +
                         "(3) Finish Transaction\n\n");
     }
+
     //// DISPLAY STOCK
     SlotMapClass slotMap = new SlotMapClass();
     String keyCode;
@@ -63,23 +69,23 @@ public class UI {
     ////DISPLAY INVENTORY AND REMAINING AMOUNTS
     public void displayStock() {
         System.out.println("\n");
-        for (String key: stockMapCopy.keySet()){
+        for (String key : stockMapCopy.keySet()) {
             keyCode = stockMapCopy.get(key).currentItem.getKeyCode();
             name = stockMapCopy.get(key).currentItem.getName();
             price = stockMapCopy.get(key).currentItem.getPrice();
             amtLeft = stockMapCopy.get(key).inventory;
-            if (amtLeft > 0){
+            if (amtLeft > 0) {
                 inventoryLeft = stockMapCopy.get(key).inventory + " remaining";
-            } else if (amtLeft == 0){
+            } else if (amtLeft == 0) {
                 inventoryLeft = "!!!SOLD OUT!!!";
             }
 
-            System.out.println("(" + keyCode + ") \"" + name + "\" $" + price + " >>> " + inventoryLeft +" <<<");
+            System.out.println("(" + keyCode + ") \"" + name + "\" $" + price + " >>> " + inventoryLeft + " <<<");
         }
         System.out.println("\n");
     }
 
-        //        System.out.println(stockMapCopy.get("A1").currentItem.getName());
+    //        System.out.println(stockMapCopy.get("A1").currentItem.getName());
 
     ////INVALID ENTRY
     public void displayIncorrect() {
@@ -87,7 +93,7 @@ public class UI {
     }
 
 
-////FEED MONEY
+    ////FEED MONEY
     public void displayFeedMoney() {
         System.out.println("$$$\nPlease feed your bill by selecting (1)(5)(10)(20)(50)or(100)\n" +
                 "(1)   : One-Dollar-Bill\n" +
@@ -98,7 +104,8 @@ public class UI {
                 "(100) : Hundred-Dollar-Bill\n");
 
     }
-////SELECT PRODUCT TO TRY AND BUY
+
+    ////SELECT PRODUCT TO TRY AND BUY
     public void displaySelectProduct() {
         System.out.println("Enter the KeyCode of the Item you would like to buy:");
         System.out.println(" ");
@@ -106,41 +113,14 @@ public class UI {
 
     }
 
-////FINISH TRANSACTION AND FINISH PRINTWRITING RECEIPT.
-        //Chiclets|1 <---WE CAN GET THIS NUMBER BY
-        //Triplemint|0      SUBTRACTING AMT LEFT BY 5.
-        //
-        //**TOTAL SALES** $11.05
+    ////FINISH TRANSACTION AND FINISH PRINTWRITING RECEIPT.
+    //Chiclets|1 <---WE CAN GET THIS NUMBER BY
+    //Triplemint|0      SUBTRACTING AMT LEFT BY 5.
+    //
+    //**TOTAL SALES** $11.05
     public void FinishTransaction() {
 
     }
-
-
-
-    public void dispenseItem(){
-        // dispense prints item name, cost, and money remaining
-        String itemName = item.currentItem.getName();
-        int itemCost = Integer.parseInt(item.currentItem.getPrice());
-        int remainingBalance = purchaseInfo.getBalance() - itemCost;
-
-        System.out.println(itemName + itemCost + remainingBalance);
-
-            if (item.currentItem.getType().equals("Chip")){
-                System.out.println(item.currentItem.getSound());
-            } else if (item.currentItem.getType().equals("Candy")){
-                System.out.println(item.currentItem.getSound());
-            } else if (item.currentItem.getType().equals("Drink")){
-                System.out.println(item.currentItem.getSound());
-            } else if (item.currentItem.getType().equals("Gum")){
-                System.out.println(item.currentItem.getSound());
-            }
-    }
-
-    public void validKeyCode(){
-
-
-    }
-
 
 
 }
