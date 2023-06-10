@@ -1,7 +1,5 @@
 package com.techelevator;
 
-import java.util.Map;
-
 public class PurchaseOption {
 
     private Menu menu;
@@ -11,20 +9,23 @@ public class PurchaseOption {
     private int changeTotal;
 
 
-    public PurchaseOption() {
+    public void PurchaseOption() {
         // if user input equals a valid key code, call dispense method from UI.
         // dispense method prints name, cost and remaining balance and displays sound.
 
-//        do {
-//
-//
-//        } while ();
+
+
+
+
+
 
 
         ////do while !=3 && while !valid input number
         ////do{sout the menu option from ui class
         //       take customer choices as numbers}
     }
+
+
 
 
     //////Option 1) feed money:
@@ -52,7 +53,7 @@ public class PurchaseOption {
     }
 
 
-    public void dispenseItem() {
+    public String dispenseItem() {
         // dispense prints item name, cost, and money remaining
         String itemName = item.currentItem.getName();
         int itemCost = Integer.parseInt(item.currentItem.getPrice());
@@ -74,5 +75,6 @@ public class PurchaseOption {
                 System.out.println(item.currentItem.getSound());
                 break;
         }
+        return (itemName + itemCost + remainingBalance);
     }
 }
