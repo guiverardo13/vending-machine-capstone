@@ -15,17 +15,16 @@ public class Menu {
 
 
     public void displayMain() {
-        // display main menu
+
         boolean isReadyToQuit = false;
-        ui.displayMainMenu();
-        userInput = ui.getUserInput();
-        if (userInput.equals("3")){
-                isReadyToQuit = true;
-        }
-        while (!isReadyToQuit) {
+        do {
+
             System.out.println("\n...\n");
             ui.displayMainMenu();
             userInput = ui.getUserInput();
+            if (userInput.equals("3")){
+                isReadyToQuit = true;
+            }
             switch (userInput){
                 case "1":
                     ui.displayStock();
@@ -36,22 +35,14 @@ public class Menu {
                     break;
                 case "3":
                     isReadyToQuit = true;
+                    ui.displayGoodbye();
                     break;
                 default:
                     ui.displayIncorrect();
                     break;
             }
 
-
-//            if (userInput.equals("1")) {
-//                ui.displayStock();
-//            } else if (userInput.equals("2")) {
-//                userInput = ui.getUserInput();
-//                this.displayPurchaseMenu();
-//            } else if (userInput.equals("3")) {
-//                isReadyToQuit = true;
-//            }
-        }
+        }while (!isReadyToQuit);
 
     }
     public void displayPurchaseMenu() {
@@ -70,6 +61,7 @@ public class Menu {
             }
             if (userInput.equals("3")) {
                 isReadyToQuit = true;
+
             }
         }
 

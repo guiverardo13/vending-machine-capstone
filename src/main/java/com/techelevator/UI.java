@@ -26,8 +26,8 @@ public class UI {
         System.out.println("Welcome to the Vendo-o-Matic 800!\n");
     }
     ///GOODBYE!!!
-    public void printGoodbye(){
-        System.out.println("Have a Great Day! Goodbye!");
+    public void displayGoodbye(){
+        System.out.println("\nHave a Great Day! Goodbye!\n");
     }
     ///DISPLAY MAIN MENU
     public void displayMainMenu() {
