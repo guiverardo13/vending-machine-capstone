@@ -6,7 +6,7 @@ public class PurchaseOption {
     private SlotMapClass slotMapClass = new SlotMapClass();
     private Map<String, Slot> slotMap = slotMapClass.getSlotMap();
     private CoinsAndBills coinsAndBills = new CoinsAndBills();
-    public int balance = 0; //in pennies
+    public int balance; //in pennies
     private int changeTotal;
     private boolean isValidInput = false;
     private String userInput;
@@ -28,18 +28,19 @@ public class PurchaseOption {
 
     //////Option 1) feed money:
     public void insertCash() {
-        ui.displayFeedMoney();
+        ui.displayFeedMoneyMenu();
         String userInput = ui.getUserInput();
-
+        System.out.println(balance);
+        System.out.println("test");
         switch (userInput){
             case "1":
-                this.balance += 100;
+                this.balance += 100; //dollar bill
                 break;
             case "5":
-                this.balance += 500;
+                this.balance += 500; // five dollar bill
                 break;
             case "10":
-                balance += 1000;
+                balance += 1000; //..etc
                 break;
             case "20":
                 balance += 2000;
@@ -56,35 +57,7 @@ public class PurchaseOption {
         }
         System.out.println(balance);
     }
-
-    //   switch (userInput){
-     //       case "1":
-     //           this.balance += coinsAndBills.getONE_DOLLAR_BILL();
-     //           break;
-     //       case "5":
-     //           this.balance += coinsAndBills.getFIVE_DOLLAR_BILL();
-     //           break;
-     //       case "10":
-     //           balance += coinsAndBills.getTEN_DOLLAR_BILL();
-     //           break;
-     //       case "20":
-     //           balance += coinsAndBills.getTWENTY_DOLLAR_BILL();
-     //           break;
-     //       case "50":
-     //           balance += coinsAndBills.getFIFTY_DOLLAR_BILL();
-     //           break;
-     //       case "100":
-     //           balance += coinsAndBills.getONE_HUNDRED_DOLLAR_BILL();
-     //           break;
-     //       default:
-     //           ui.displayBillError();
-     //           break;
-      //  }
-      //  System.out.println(balance);
-
-
-        //ui = new UI();
-
+    
     //////Option 2) Select Item
     public void selectProduct() throws MalformedItemException {
 

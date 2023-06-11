@@ -1,0 +1,24 @@
+    //   switch (userInput){
+     //       case "1":
+     //           this.balance += coinsAndBills.getONE_DOLLAR_BILL();
+     //           break;
+     //       case "5":
+     //           this.balance += coinsAndBills.getFIVE_DOLLAR_BILL();
+     //           break;
+     //       case "10":
+     //           balance += coinsAndBills.getTEN_DOLLAR_BILL();
+     //           break;
+     //       case "20":
+     //           balance += coinsAndBills.getTWENTY_DOLLAR_BILL();
+     //           break;
+     //       case "50":
+     //           balance += coinsAndBills.getFIFTY_DOLLAR_BILL();
+     //           break;
+     //       case "100":
+     //           balance += coinsAndBills.getONE_HUNDRED_DOLLAR_BILL();
+     //           break;
+     //       default:
+     //           ui.displayBillError();
+     //           break;
+      //  }
+      //  System.out.println(balance);

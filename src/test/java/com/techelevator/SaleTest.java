@@ -1,4 +1,4 @@
-package com.techelevator.sale;
+package com.techelevator;
 
 import com.techelevator.Sale;
 import org.junit.Assert;

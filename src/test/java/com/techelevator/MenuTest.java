@@ -1,4 +1,4 @@
-package com.techelevator.menu;
+package com.techelevator;
 
 import com.techelevator.MalformedItemException;
 import com.techelevator.Menu;

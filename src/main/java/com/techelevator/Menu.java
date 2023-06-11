@@ -64,8 +64,6 @@ public class Menu {
             switch (userInput){
                 case "1":
                     ////Call a method from purchase options CLASS
-                    ui.displayFeedMoneyMenu();
-                    ui.getUserInput();
                     purchaseOption.insertCash();
                     break;
                 case "2":
