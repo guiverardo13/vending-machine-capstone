@@ -1,4 +1,4 @@
-package com.techelevator;
+package TrashBin;
 
 public class CoinsAndBills {
 

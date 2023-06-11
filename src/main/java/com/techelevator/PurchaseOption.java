@@ -1,11 +1,12 @@
 package com.techelevator;
+import TrashBin.CoinsAndBills;
+
 import java.util.Map;
 
 public class PurchaseOption {
 
     private SlotMapClass slotMapClass = new SlotMapClass();
     private Map<String, Slot> slotMap = slotMapClass.getSlotMap();
-    private CoinsAndBills coinsAndBills = new CoinsAndBills();
     public int balance; //in pennies
     private int changeTotal;
     private boolean isValidInput = false;
@@ -93,6 +94,7 @@ public class PurchaseOption {
         //////Option 3) Finish Transaction
         public void finishTransaction() {
             sale.getAndPrintChangeCoins(balance);
+            balance = 0;
             ////LOOOOOOOOOOG method
         }
         ///returns to last menu. somehow.

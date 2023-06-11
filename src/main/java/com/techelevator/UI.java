@@ -24,18 +24,19 @@ public class UI {
 
     ///WELCOME MESSAGE
     public void displayWelcome() {
-        System.out.println("Welcome to the Vendo-o-Matic 800!\n");
+        System.out.println("Welcome to the Vendo-o-Matic 800!");
     }
 
     ///GOODBYE!!!
     public void displayGoodbye() {
-        System.out.println("\nHave a Great Day! Goodbye!\n");
+        System.out.println("\nHave a Great Day! Goodbye!\nsay no to drugs\n" +
+                "~~~~~~~~~~~~\n");
     }
 
     ///DISPLAY MAIN MENU
     public void displayMainMenu() {
         System.out.println(
-                "Please select (1)(2)or(3) from the menu options:\n\n" +
+                "Please select (1)(2)or(3) from the menu options:\n" +
                         "(1) Display Vending Machine Items\n" +
                         "(2) Purchase\n" +
                         "(3) Exit\n\n");
@@ -50,7 +51,7 @@ public class UI {
         moneyString = formatter.format(moneys);
         System.out.println("Current Money Provided: " + moneyString + "\n");
         System.out.println(
-                "Please select (1)(2)or(3) from the menu options:\n\n" +
+                "Please select (1)(2)or(3) from the menu options:\n" +
                         "(1) Feed Money\n" +
                         "(2) Select Product\n" +
                         "(3) Finish Transaction\n\n");

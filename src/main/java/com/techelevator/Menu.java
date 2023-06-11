@@ -13,7 +13,7 @@ public class Menu {
     private Map<String, Slot> stockMapCopy;
     String name;
     PurchaseOption purchaseOption = new PurchaseOption();
-
+    private Application application = new Application();
 
 
 
@@ -40,6 +40,8 @@ public class Menu {
                 case "3":
                     isReadyToQuit = true;
                     ui.displayGoodbye();
+                    String[] box = new String[1];
+                    application.main(box);
                     break;
                 default:
                     ui.displayIncorrect();
