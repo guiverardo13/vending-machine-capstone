@@ -14,6 +14,7 @@ public class PurchaseOption {
     UI ui = new UI();
     private Sale sale = new Sale();
     private Logger logActivity = new Logger();
+    private int cashInput;
 
     public PurchaseOption() throws MalformedItemException {
 
@@ -36,27 +37,36 @@ public class PurchaseOption {
 
         switch (userInput) {
             case "1":
-                this.balance += 100; //dollar bill
+               // this.balance += 100; //dollar bill
+                cashInput = 100;
                 break;
             case "5":
-                this.balance += 500; // five dollar bill
+               // this.balance += 500; // five dollar bill
+                cashInput = 500;
                 break;
             case "10":
-                balance += 1000; //..etc
+               // balance += 1000; //..etc
+                cashInput = 1000;
                 break;
             case "20":
-                balance += 2000;
+               // balance += 2000;
+                cashInput = 2000;
                 break;
             case "50":
-                balance += 5000;
+               // balance += 5000;
+                cashInput = 5000;
                 break;
             case "100":
-                balance += 10000;
+               // balance += 10000;
+                cashInput = 10000;
                 break;
             default:
                 ui.displayBillError();
                 break;
+
         }
+
+        balance += cashInput;
     }
 
     //////Option 2) Select Item
@@ -65,33 +75,27 @@ public class PurchaseOption {
 //        slotMap = slotMapClass.getSlotMap();
         String price;
         // make do while loop to check valid input
-        do {
-            userInput = ui.getUserInput();
-            if (slotMap.containsKey(userInput)) {
-                isValidInput = true;
-            } else {
-                ui.displayIncorrect();
+
+        String tempUserInput = ui.getUserInput();
+        if (slotMap.containsKey(tempUserInput)) {
+            userInput = tempUserInput;
+            price = slotMap.get(userInput).currentItem.getPrice();
+            Integer priceI = Integer.parseInt(price.replace(".", ""));
+            if (balance >= priceI) {
+                if (slotMap.get(userInput).inventory > 0) {
+                    balance -= priceI;
+                    slotMapClass.takeOneOut(userInput);
+                    ui.displaySuccessfulPurchase(userInput, balance);
+
+
+                } else if (slotMap.get(userInput).inventory <= 0) {
+                    ui.displaySoldOut();
+                }
+            } else if (balance < priceI) {
+                ui.displayNotEnoughFunds();
             }
-        } while (!isValidInput);
-
-        price = slotMap.get(userInput).currentItem.getPrice();
-        Integer priceI = Integer.parseInt(price.replace(".", ""));
-
-
-        if (balance >= priceI) {
-            if (slotMap.get(userInput).inventory > 0) {
-                balance -= priceI;
-                slotMapClass.takeOneOut(userInput);
-                ui.displaySuccessfulPurchase(userInput, balance);
-//                prints the item name, cost, and the money remaining. Dispensing also returns a message:
-//                All chip items print "Crunch Crunch, Yum!"
-//                 Log event
-
-            } else if (slotMap.get(userInput).inventory <= 0) {
-                ui.displaySoldOut();
-            }
-        } else if (balance < priceI) {
-            ui.displayNotEnoughFunds();
+        } else {
+            ui.displayIncorrect();
         }
     }
 
@@ -132,9 +136,10 @@ public class PurchaseOption {
         double moneys = (double) balance / 100;
         NumberFormat formatter = NumberFormat.getCurrencyInstance();
         String moneyString = formatter.format(moneys);
+        String moneyIn = formatter.format((double) cashInput/100);
 
 
-      //  logActivity.logEvent("FEED MONEY:", moneyString, );
+       logActivity.logEvent("FEED MONEY:", moneyIn , moneyString);
     }
 }
 
