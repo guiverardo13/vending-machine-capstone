@@ -34,7 +34,7 @@ public class Logger {
         try (FileOutputStream fileWriter = new FileOutputStream("log.txt", true);
              PrintWriter fileAppender = new PrintWriter(fileWriter)) {
 
-            PrintWriter print = new PrintWriter(fileWriter);
+            PrintWriter print = new PrintWriter(fileAppender);
             print.print(logString + "\n");
 
         } catch (IOException e) {
