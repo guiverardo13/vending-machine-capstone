@@ -134,8 +134,7 @@ public class PurchaseOption {
         String moneyString = formatter.format(moneys);
 
 
-
-        //logActivity.logEvent("FEED MONEY:", moneyString, );
+      //  logActivity.logEvent("FEED MONEY:", moneyString, );
     }
 }
 
