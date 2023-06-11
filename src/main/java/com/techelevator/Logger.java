@@ -3,9 +3,7 @@ package com.techelevator;
 import java.io.*;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatterBuilder;
-import java.time.format.DateTimeFormatter;
+
 
 public class Logger {
     private final String fileName = "log.txt";
@@ -29,17 +27,23 @@ public class Logger {
         return date;
     }
 
-    public String logEvent(String event, String balanceBeforeTransaction, String afterTransaction) {
+    public void logEvent(String event, String balanceBeforeTransaction, String afterTransaction) {
         String logString = String.format("%-24s %-22s %-14s %-14s", getCurrentTime(), event, balanceBeforeTransaction,
                 afterTransaction);
 
-        try (Writer fileWriter = new FileWriter(logFile, true);
-             PrintWriter print = new PrintWriter(fileWriter)) {
-            print.write(logString + "\n");
+        try (FileOutputStream fileWriter = new FileOutputStream("log.txt", true);
+             PrintWriter fileAppender = new PrintWriter(fileWriter)) {
+
+            PrintWriter print = new PrintWriter(fileWriter);
+            print.print(logString + "\n");
+
         } catch (IOException e) {
+
         }
-        return logString;
+       
+
 
     }
 }
+
 

@@ -80,9 +80,11 @@ public class Menu {
                     purchaseOption.logChange();
                     purchaseOption.finishTransaction();
                     System.out.println("\n--going back to main menu--");
+
                     //isReadyToQuit = true;
-                    //this.displaysMain(); //<<<---- this is conflicting with the last part of the log
+                    this.displaysMain();
                     break;
+
                 default:
                     ui.displayIncorrect();
                     break;
