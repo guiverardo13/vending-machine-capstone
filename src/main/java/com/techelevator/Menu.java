@@ -87,6 +87,7 @@ public class Menu {
 
                 default:
                     ui.displayIncorrect();
+
                     break;
             }
         } while (!isReadyToQuit);
