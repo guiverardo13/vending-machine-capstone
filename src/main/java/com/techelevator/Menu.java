@@ -67,19 +67,21 @@ public class Menu {
                 case "1":
                     ////Call a method from purchase options CLASS
                     purchaseOption.insertCash();
+                    purchaseOption.logFeedMoney();
                     break;
                 case "2":
                     ui.displayStock();
                     ui.displaySelectProduct();
                     ////Call a method from purchase options CLASS
                     purchaseOption.selectProduct();
-
+                    purchaseOption.logItem();
                     break;
                 case "3":
+                    purchaseOption.logChange();
                     purchaseOption.finishTransaction();
                     System.out.println("\n--going back to main menu--");
                     //isReadyToQuit = true;
-                    this.displaysMain();
+                    //this.displaysMain(); //<<<---- this is conflicting with the last part of the log
                     break;
                 default:
                     ui.displayIncorrect();

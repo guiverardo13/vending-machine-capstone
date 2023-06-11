@@ -20,6 +20,7 @@ public class Logger {
         try {
             logFile.createNewFile();
         } catch (IOException e) {
+            System.out.println("File cannot be created.");
         }
     }
 
