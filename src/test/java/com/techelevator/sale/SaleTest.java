@@ -1,5 +1,6 @@
-package com.techelevator;
+package com.techelevator.sale;
 
+import com.techelevator.Sale;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;

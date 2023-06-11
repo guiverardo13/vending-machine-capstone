@@ -6,7 +6,7 @@ public class PurchaseOption {
     private SlotMapClass slotMapClass = new SlotMapClass();
     private Map<String, Slot> slotMap = slotMapClass.getSlotMap();
     private CoinsAndBills coinsAndBills = new CoinsAndBills();
-    public int balance; //in pennies
+    public int balance = 0; //in pennies
     private int changeTotal;
     private boolean isValidInput = false;
     private String userInput;
@@ -28,34 +28,50 @@ public class PurchaseOption {
 
     //////Option 1) feed money:
     public void insertCash() {
-        ui.displayFeedMoney();
         String userInput = ui.getUserInput();
 
-        switch (userInput){
-            case "1":
-                this.balance += 100;
-                break;
-            case "5":
-                this.balance += 500;
-                break;
-            case "10":
-                balance += 1000;
-                break;
-            case "20":
-                balance += 2000;
-                break;
-            case "50":
-                balance += 5000;
-                break;
-            case "100":
-                balance += 10000;
-                break;
-            default:
-                ui.displayBillError();
-                break;
+        if(userInput.equals("1")){
+            balance = coinsAndBills.getONE_DOLLAR_BILL();
+        } else if(userInput.equals("5")){
+            balance = coinsAndBills.getFIVE_DOLLAR_BILL();
+        } else if(ui.getUserInput().equals("10")){
+            balance = coinsAndBills.getTEN_DOLLAR_BILL();
+        } else if(ui.getUserInput().equals("20")){
+            balance = coinsAndBills.getTWENTY_DOLLAR_BILL();
+        } else if(ui.getUserInput().equals("50")){
+            balance = coinsAndBills.getFIFTY_DOLLAR_BILL();
+        } else if(ui.getUserInput().equals("100")){
+            balance = coinsAndBills.getONE_HUNDRED_DOLLAR_BILL();
+        } else {
+            System.out.println("Not a valid entry");
         }
-        System.out.println(balance);
     }
+
+    //   switch (userInput){
+     //       case "1":
+     //           this.balance += coinsAndBills.getONE_DOLLAR_BILL();
+     //           break;
+     //       case "5":
+     //           this.balance += coinsAndBills.getFIVE_DOLLAR_BILL();
+     //           break;
+     //       case "10":
+     //           balance += coinsAndBills.getTEN_DOLLAR_BILL();
+     //           break;
+     //       case "20":
+     //           balance += coinsAndBills.getTWENTY_DOLLAR_BILL();
+     //           break;
+     //       case "50":
+     //           balance += coinsAndBills.getFIFTY_DOLLAR_BILL();
+     //           break;
+     //       case "100":
+     //           balance += coinsAndBills.getONE_HUNDRED_DOLLAR_BILL();
+     //           break;
+     //       default:
+     //           ui.displayBillError();
+     //           break;
+      //  }
+      //  System.out.println(balance);
+
 
         //ui = new UI();
 
