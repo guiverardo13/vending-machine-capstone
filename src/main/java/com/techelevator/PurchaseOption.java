@@ -29,22 +29,23 @@ public class PurchaseOption {
     //////Option 1) feed money:
     public void insertCash() {
         // this is adding money to balance and displays at "current money provided"
-        // not 100% functioning properly
+        // not 100% functioning properly, you have to keep entering 1, 5, 10 etc but its add the money on top of previous balance
+        // it's going through each if statement each entry, need to fix it somehow I don't know where its coming from. 
 
         String userInput = ui.getUserInput();
 
-        if(userInput.equals("1")){
-            balance = coinsAndBills.getONE_DOLLAR_BILL();
-        } else if(userInput.equals("5")){
-            balance = coinsAndBills.getFIVE_DOLLAR_BILL();
-        } else if(ui.getUserInput().equals("10")){
-            balance = coinsAndBills.getTEN_DOLLAR_BILL();
-        } else if(ui.getUserInput().equals("20")){
-            balance = coinsAndBills.getTWENTY_DOLLAR_BILL();
-        } else if(ui.getUserInput().equals("50")){
-            balance = coinsAndBills.getFIFTY_DOLLAR_BILL();
-        } else if(ui.getUserInput().equals("100")){
-            balance = coinsAndBills.getONE_HUNDRED_DOLLAR_BILL();
+        if (userInput.equals("1")) {
+            balance = balance + coinsAndBills.getONE_DOLLAR_BILL();
+        } else if (userInput.equals("5")) {
+            balance = balance + coinsAndBills.getFIVE_DOLLAR_BILL();
+        } else if (ui.getUserInput().equals("10")) {
+            balance = balance + coinsAndBills.getTEN_DOLLAR_BILL();
+        } else if (ui.getUserInput().equals("20")) {
+            balance = balance + coinsAndBills.getTWENTY_DOLLAR_BILL();
+        } else if (ui.getUserInput().equals("50")) {
+            balance = balance + coinsAndBills.getFIFTY_DOLLAR_BILL();
+        } else if (ui.getUserInput().equals("100")) {
+            balance = balance + coinsAndBills.getONE_HUNDRED_DOLLAR_BILL();
         } else {
             System.out.println("Not a valid entry");
         }
