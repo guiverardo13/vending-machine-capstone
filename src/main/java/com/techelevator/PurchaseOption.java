@@ -29,8 +29,8 @@ public class PurchaseOption {
     //////Option 1) feed money:
     public void insertCash() {
         // this is adding money to balance and displays at "current money provided"
-        // not 100% functioning properly, you have to keep entering 1, 5, 10 etc but its add the money on top of previous balance
-        // it's going through each if statement each entry, need to fix it somehow I don't know where its coming from. 
+        // not 100% functioning properly, you have to keep entering 1, 5, 10 etc but its adding the money on top of previous balance
+        // it's going through each if statement each entry, need to fix it somehow I don't know where its coming from.
 
         String userInput = ui.getUserInput();
 
