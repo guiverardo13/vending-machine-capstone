@@ -18,7 +18,7 @@ public class Menu {
 
 
     public void displaysMain() throws MalformedItemException {
-
+        PurchaseOption purchaseOption = new PurchaseOption();
         boolean isReadyToQuit = false;
         do {
 
@@ -35,7 +35,7 @@ public class Menu {
                 case "2":
                     this.displaysPurchaseMenu();
                     userInput = ui.getUserInput();
-
+                    purchaseOption.selectProduct();
                     break;
                 case "3":
                     isReadyToQuit = true;
@@ -52,6 +52,7 @@ public class Menu {
 
 
     public void displaysPurchaseMenu() throws MalformedItemException {
+
         boolean isReadyToQuit = false;
         do{
             System.out.println("\n...\n");
@@ -62,16 +63,15 @@ public class Menu {
             }
             switch (userInput){
                 case "1":
-                    ui.displayFeedMoney();
                     ////Call a method from purchase options CLASS
+                    ui.displayFeedMoneyMenu();
                     ui.getUserInput();
-
+                    purchaseOption.insertCash();
                     break;
                 case "2":
                     ui.displayStock();
                     ui.displaySelectProduct();
-                    ////Call a method from purchaseoptionsCLASS
-                    purchaseOption.insertCash();
+                    ////Call a method from purchase options CLASS
                     purchaseOption.selectProduct();
 
                     break;

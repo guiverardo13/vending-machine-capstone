@@ -10,7 +10,7 @@ import java.text.NumberFormat;
 public class UI {
     private final Scanner userInput = new Scanner(System.in);
 
-
+    public String moneyString;
     public UI() throws MalformedItemException {
     }
 
@@ -47,7 +47,7 @@ public class UI {
         double moneys = (double) balance / 100;
 
         NumberFormat formatter = NumberFormat.getCurrencyInstance();
-        String moneyString = formatter.format(moneys);
+        moneyString = formatter.format(moneys);
         System.out.println("Current Money Provided: " + moneyString + "\n");
         System.out.println(
                 "Please select (1)(2)or(3) from the menu options:\n\n" +
@@ -97,7 +97,7 @@ public class UI {
 
 
     ////FEED MONEY
-    public void displayFeedMoney() {
+    public void displayFeedMoneyMenu() {
         System.out.println("$$$\nPlease feed your bill by selecting (1)(5)(10)(20)(50)or(100)\n" +
                 "(1)   : One-Dollar-Bill\n" +
                 "(5)   : Five-Dollar-Bill\n" +
