@@ -1,4 +1,6 @@
 package com.techelevator;
+
+import java.text.NumberFormat;
 import java.util.Map;
 
 public class PurchaseOption {
@@ -10,6 +12,8 @@ public class PurchaseOption {
     private boolean isValidInput = false;
     private String userInput;
     UI ui = new UI();
+    private Sale sale = new Sale();
+    private Logger logActivity = new Logger();
 
     public PurchaseOption() throws MalformedItemException {
 
@@ -70,38 +74,72 @@ public class PurchaseOption {
             }
         } while (!isValidInput);
 
-
         price = slotMap.get(userInput).currentItem.getPrice();
         Integer priceI = Integer.parseInt(price.replace(".", ""));
 
-    
+
         if (balance >= priceI) {
             if (slotMap.get(userInput).inventory > 0) {
                 balance -= priceI;
                 slotMapClass.takeOneOut(userInput);
-                System.out.println(slotMap.get(userInput).inventory + "<----testSTOCK");
-                System.out.println("test4");
-            } else if (balance < priceI) {
-                ui.displayNotEnoughFunds();
-                System.out.println("test5");
+                ui.displaySuccessfulPurchase(userInput, balance);
+//                prints the item name, cost, and the money remaining. Dispensing also returns a message:
+//                All chip items print "Crunch Crunch, Yum!"
+//                 Log event
+
             } else if (slotMap.get(userInput).inventory <= 0) {
                 ui.displaySoldOut();
             }
+        } else if (balance < priceI) {
+            ui.displayNotEnoughFunds();
         }
-
     }
 
     //////Option 3) Finish Transaction
-    public void finishTransaction () {
+    public void finishTransaction() {
+        sale.getAndPrintChangeCoins(balance);
+        balance = 0;
+        ////LOOOOOOOOOOG method
     }
-        ///returns to last menu. somehow.
+    ///returns to last menu. somehow.
 
 
-    public int getBalance () {
+    public int getBalance() {
         return balance;
     }
 
+    public void logItem() {
+        double moneys = (double) balance / 100;
+        NumberFormat formatter = NumberFormat.getCurrencyInstance();
+        String moneyString = formatter.format(moneys);
+
+        String name = slotMap.get(userInput).currentItem.getName();
+        String price = ("$" + slotMap.get(userInput).currentItem.getPrice());
+
+
+        logActivity.logEvent(name, price, moneyString);
+    }
+
+    public void logChange() {
+        double moneys = (double) balance / 100;
+        NumberFormat formatter = NumberFormat.getCurrencyInstance();
+        String moneyString = formatter.format(moneys);
+
+        logActivity.logEvent("GIVE CHANGE:", moneyString, "$0.00");
+    }
+
+    public void logFeedMoney() {
+        double moneys = (double) balance / 100;
+        NumberFormat formatter = NumberFormat.getCurrencyInstance();
+        String moneyString = formatter.format(moneys);
+
+
+      //  logActivity.logEvent("FEED MONEY:", moneyString, );
+    }
 }
+
+
+
 
 
 
