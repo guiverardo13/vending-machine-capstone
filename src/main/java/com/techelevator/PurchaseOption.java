@@ -15,10 +15,8 @@ public class PurchaseOption {
         // if user input equals a valid key code, call dispense method from UI.
         // dispense method prints name, cost and remaining balance and displays sound.
 
-        do {
 
 
-        } while ();
 
 
         ////do while !=3 && while !valid input number
