@@ -10,6 +10,9 @@ public class Logger {
     private boolean deleteFile = new File(fileName).delete();
     private File logFile = new File(fileName);
 
+
+
+
     public Logger() {
         createNewFile();
     }

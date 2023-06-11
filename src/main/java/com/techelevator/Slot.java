@@ -17,16 +17,16 @@ public class Slot {
 
         if (type.equals("Chip")) {
             sound = "\"Crunch Crunch, Yum!\"";
-            currentItem = new Chip(key, name, price, type, sound);
+            currentItem = new Item(key, name, price, type, sound);
         } else if (type.equals("Drink")) {
             sound  = "\"Glug Glug, Yum!\"";
-            currentItem = new Drink(key, name, price, type, sound);
+            currentItem = new Item(key, name, price, type, sound);
         } else if (type.equals("Gum")) {
             sound = "\"Chew Chew, Yum!\"";
-            currentItem = new Gum(key, name, price, type, sound);
+            currentItem = new Item(key, name, price, type, sound);
         } else if (type.equals("Candy")) {
             sound = "\"Munch Munch, Yum!\"";
-            currentItem = new Candy(key, name, price, type, sound);
+            currentItem = new Item(key, name, price, type, sound);
         }
             inventory = STARTING_INVENTORY;
 

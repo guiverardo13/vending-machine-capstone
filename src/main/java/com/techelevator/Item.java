@@ -2,7 +2,7 @@ package com.techelevator;
 
 // this class will create item
 // Use it for: display it to the customer, creating the log and sales report
-public abstract class Item {
+public class Item {
 
     private String name;
     private String type;
