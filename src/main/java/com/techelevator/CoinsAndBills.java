@@ -2,6 +2,8 @@ package com.techelevator;
 
 public class CoinsAndBills {
 
+    public CoinsAndBills(){}
+
     // Coins
     private final int QUARTER = 25;
     private final int DIME = 10;
@@ -13,6 +15,11 @@ public class CoinsAndBills {
     private final int FIVE_DOLLAR_BILL = 500;
     private final int TEN_DOLLAR_BILL = 1000;
     private final int TWENTY_DOLLAR_BILL = 2000;
+    private final int FIFTY_DOLLAR_BILL = 5000;
+    private final int ONE_HUNDRED_DOLLAR_BILL = 10000;
+
+
+
 
     // Getters
 
@@ -47,5 +54,9 @@ public class CoinsAndBills {
     public int getTWENTY_DOLLAR_BILL() {
         return TWENTY_DOLLAR_BILL;
     }
+
+    public int getFIFTY_DOLLAR_BILL() { return FIFTY_DOLLAR_BILL; }
+
+    public int getONE_HUNDRED_DOLLAR_BILL() { return ONE_HUNDRED_DOLLAR_BILL; }
 }
 

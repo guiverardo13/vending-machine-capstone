@@ -7,13 +7,15 @@ import java.io.FileNotFoundException; //new
 import java.util.Map;
 
 public class SlotMapClass {
-////<keycode , SLOT>
+    ////<keycode , SLOT>
     String pathName;
     String line;
-    Map<String,Slot> slotMap = new LinkedHashMap<>();
-
-    public SlotMapClass() throws MalformedItemException {
+    static Map<String, Slot> slotMap = new LinkedHashMap<>();
+    ///CONSTRUCTORS
+    public SlotMapClass(String falseString) throws MalformedItemException {
         this.setUpMachine();
+    }
+    public SlotMapClass() {
     }
 
     private void setUpMachine() throws MalformedItemException {

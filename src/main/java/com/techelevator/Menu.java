@@ -3,7 +3,7 @@ package com.techelevator;
 import java.util.Map;
 
 public class Menu {
-
+    ////CONSTRUCTOR
     public Menu() throws MalformedItemException {
     }
 
@@ -12,11 +12,12 @@ public class Menu {
     private SlotMapClass slotMap = new SlotMapClass();
     private Map<String, Slot> stockMapCopy;
     String name;
+    PurchaseOption purchaseOption = new PurchaseOption();
 
 
 
 
-    public void displayMain() {
+    public void displaysMain() throws MalformedItemException {
 
         boolean isReadyToQuit = false;
         do {
@@ -32,8 +33,8 @@ public class Menu {
                     ui.displayStock();
                     break;
                 case "2":
+                    this.displaysPurchaseMenu();
                     userInput = ui.getUserInput();
-                    this.displayPurchaseMenu();
 
                     break;
                 case "3":
@@ -50,11 +51,11 @@ public class Menu {
 
 
 
-    public void displayPurchaseMenu() {
+    public void displaysPurchaseMenu() throws MalformedItemException {
         boolean isReadyToQuit = false;
         do{
             System.out.println("\n...\n");
-            ui.displayPurchaseMenu();
+            ui.displayPurchaseMenu(purchaseOption.balance);
             userInput = ui.getUserInput();
             if (userInput.equals("3")){
                 isReadyToQuit = true;
@@ -62,14 +63,16 @@ public class Menu {
             switch (userInput){
                 case "1":
                     ui.displayFeedMoney();
-                    System.out.println("====more to come====");
                     ////Call a method from purchase options CLASS
+                    ui.getUserInput();
+
                     break;
                 case "2":
                     ui.displayStock();
                     ui.displaySelectProduct();
-
-                    ////Call a method from purchase options CLASS
+                    ////Call a method from purchaseoptionsCLASS
+                    purchaseOption.insertCash();
+                    purchaseOption.selectProduct();
 
                     break;
                 case "3":

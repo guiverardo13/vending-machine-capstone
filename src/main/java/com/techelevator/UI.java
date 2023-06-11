@@ -1,23 +1,20 @@
 package com.techelevator;
-import java.util.LinkedHashMap;
+import java.text.DecimalFormat;
 import java.util.Map;
 import java.util.Scanner;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatterBuilder;
-import java.time.format.DateTimeFormatter;
 import java.text.NumberFormat;
-import java.util.Locale;
+
 
 ////This is where we will log the actions to the txt file.//we could either do it as the things happen or make an array of Strings that we could then printwrite to txt file
 
 public class UI {
     private final Scanner userInput = new Scanner(System.in);
 
+
     public UI() throws MalformedItemException {
     }
 
-    private final PurchaseOption purchaseInfo = new PurchaseOption();
-
+    private SlotMapClass slotMapClass = new SlotMapClass();
     private Slot item;
 
     ///USER INPUT GETTER
@@ -44,12 +41,14 @@ public class UI {
                         "(3) Exit\n\n");
     }
 
-    NumberFormat nfUS = NumberFormat.getCurrencyInstance(Locale.US);
-
     ///DISPLAY PURCHASE MENU
-    public void displayPurchaseMenu() {
-        String formattedAmount = NumberFormat.getCurrencyInstance().format(purchaseInfo.getBalance());
-        System.out.println("Current Money Provided: " + formattedAmount + "\n");
+    public void displayPurchaseMenu(int balance) {
+       // DecimalFormat dFormat = new DecimalFormat();
+        double moneys = (double) balance / 100;
+
+        NumberFormat formatter = NumberFormat.getCurrencyInstance();
+        String moneyString = formatter.format(moneys);
+        System.out.println("Current Money Provided: " + moneyString + "\n");
         System.out.println(
                 "Please select (1)(2)or(3) from the menu options:\n\n" +
                         "(1) Feed Money\n" +
@@ -64,7 +63,7 @@ public class UI {
     String price;
     int amtLeft;
     String inventoryLeft = "";
-    Map<String, Slot> stockMapCopy = new LinkedHashMap<>(slotMap.getSlotMap());
+    Map<String, Slot> stockMapCopy = slotMapClass.getSlotMap();
 
     ////DISPLAY INVENTORY AND REMAINING AMOUNTS
     public void displayStock() {
@@ -85,6 +84,10 @@ public class UI {
         System.out.println("\n");
     }
 
+    ////SOLD OUT!!!
+    public void displaySoldOut(){
+        System.out.println("\n>>> SOLD OUT <<<\n");
+    }
     //        System.out.println(stockMapCopy.get("A1").currentItem.getName());
 
     ////INVALID ENTRY
@@ -109,9 +112,19 @@ public class UI {
     public void displaySelectProduct() {
         System.out.println("Enter the KeyCode of the Item you would like to buy:");
         System.out.println(" ");
-        getUserInput();
 
     }
+
+    ////NOT ENOUGH FUNDS
+    public void displayNotEnoughFunds(){
+        System.out.println("\nSorry!!! You do not have enough funds in your balance.\n");
+    }
+
+    ////BILL ERROR
+    public void displayBillError(){
+        System.out.println("\nInvalid entry!!! Try again.\n");
+    }
+
 
     ////FINISH TRANSACTION AND FINISH PRINTWRITING RECEIPT.
     //Chiclets|1 <---WE CAN GET THIS NUMBER BY
@@ -121,6 +134,11 @@ public class UI {
     public void FinishTransaction() {
 
     }
+
+
+
+
+
 
 
 }
