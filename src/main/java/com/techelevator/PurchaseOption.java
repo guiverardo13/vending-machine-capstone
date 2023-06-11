@@ -28,6 +28,9 @@ public class PurchaseOption {
 
     //////Option 1) feed money:
     public void insertCash() {
+        // this is adding money to balance and displays at "current money provided"
+        // not 100% functioning properly
+
         String userInput = ui.getUserInput();
 
         if(userInput.equals("1")){
