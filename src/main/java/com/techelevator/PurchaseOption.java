@@ -11,6 +11,7 @@ public class PurchaseOption {
     private boolean isValidInput = false;
     private String userInput;
     UI ui = new UI();
+    private Sale sale = new Sale();
 
     public PurchaseOption() throws MalformedItemException {
 
@@ -30,8 +31,7 @@ public class PurchaseOption {
     public void insertCash() {
         ui.displayFeedMoneyMenu();
         String userInput = ui.getUserInput();
-        System.out.println(balance);
-        System.out.println("test");
+
         switch (userInput){
             case "1":
                 this.balance += 100; //dollar bill
@@ -55,9 +55,8 @@ public class PurchaseOption {
                 ui.displayBillError();
                 break;
         }
-        System.out.println(balance);
     }
-    
+
     //////Option 2) Select Item
     public void selectProduct() throws MalformedItemException {
 
@@ -68,49 +67,44 @@ public class PurchaseOption {
             userInput = ui.getUserInput();
             if (slotMap.containsKey(userInput)) {
                 isValidInput = true;
-                System.out.println("test1");
             } else {
                 ui.displayIncorrect();
-                System.out.println("test2");
             }
         } while (!isValidInput);
-
-        System.out.println("test3");
 
         price = slotMap.get(userInput).currentItem.getPrice();
         Integer priceI = Integer.parseInt(price.replace(".", ""));
 
-        System.out.println(priceI + "<-----TestPRICE");
-        System.out.println(slotMap.get(userInput).inventory + "<----testSTOCK");
-        System.out.println(balance + "<----testBALANCE");
+
         if (balance >= priceI) {
             if (slotMap.get(userInput).inventory > 0) {
                 balance -= priceI;
-                System.out.println(balance + "<----testBALANCE");
                 slotMapClass.takeOneOut(userInput);
-                System.out.println(slotMap.get(userInput).inventory + "<----testSTOCK");
-                System.out.println("test4");
-            } else if (balance < priceI) {
-                ui.displayNotEnoughFunds();
-                System.out.println("test5");
+                ui.displaySuccessfulPurchase(userInput, balance);
+//                prints the item name, cost, and the money remaining. Dispensing also returns a message:
+//                All chip items print "Crunch Crunch, Yum!"
             } else if (slotMap.get(userInput).inventory <= 0) {
-                ui.displaySoldOut();
-            }
+                ui.displaySoldOut();}
+        } else if (balance < priceI) {
+            ui.displayNotEnoughFunds();
         }
-
     }
 
-    //////Option 3) Finish Transaction
-    public void finishTransaction () {
-    }
+        //////Option 3) Finish Transaction
+        public void finishTransaction() {
+            sale.getAndPrintChangeCoins(balance);
+            ////LOOOOOOOOOOG method
+        }
         ///returns to last menu. somehow.
 
 
-    public int getBalance () {
-        return balance;
-    }
-
+        public int getBalance() {
+            return balance;
+        }
 }
+
+
+
 
 
 

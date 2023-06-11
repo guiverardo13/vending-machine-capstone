@@ -10,10 +10,12 @@ public abstract class Item {
     private String keyCode;
     private String sound;
 
-    public Item(String keyCode, String name, String price) {
+    public Item(String keyCode, String name, String price, String type, String sound) {
         this.name = name;
         this.price = price;
         this.keyCode = keyCode;
+        this.type = type;
+        this.sound = sound;
     }
 
     public String getName() {return this.name;}

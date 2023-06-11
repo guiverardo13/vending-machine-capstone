@@ -6,6 +6,7 @@ public class Slot {
     public int inventory;
     private String[] lineParts;
     public Item currentItem;
+    private String sound;
 
     public Slot(String line) {
         lineParts = line.split("\\|");
@@ -15,13 +16,17 @@ public class Slot {
         String type = lineParts[3];
 
         if (type.equals("Chip")) {
-            currentItem = new Chip(key, name, price);
+            sound = "\"Crunch Crunch, Yum!\"";
+            currentItem = new Chip(key, name, price, type, sound);
         } else if (type.equals("Drink")) {
-            currentItem = new Drink(key, name, price);
+            sound  = "\"Glug Glug, Yum!\"";
+            currentItem = new Drink(key, name, price, type, sound);
         } else if (type.equals("Gum")) {
-            currentItem = new Gum(key, name, price);
+            sound = "\"Chew Chew, Yum!\"";
+            currentItem = new Gum(key, name, price, type, sound);
         } else if (type.equals("Candy")) {
-            currentItem = new Candy(key, name, price);
+            sound = "\"Munch Munch, Yum!\"";
+            currentItem = new Candy(key, name, price, type, sound);
         }
             inventory = STARTING_INVENTORY;
 

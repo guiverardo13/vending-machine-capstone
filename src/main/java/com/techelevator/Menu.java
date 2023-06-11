@@ -74,7 +74,8 @@ public class Menu {
 
                     break;
                 case "3":
-                    System.out.println("--going back to main menu--");
+                    purchaseOption.finishTransaction();
+                    System.out.println("\n--going back to main menu--");
                     //isReadyToQuit = true;
                     this.displaysMain();
                     break;
@@ -83,7 +84,6 @@ public class Menu {
                     break;
             }
         } while (!isReadyToQuit);
-
 
     }
 }

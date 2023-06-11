@@ -112,7 +112,18 @@ public class UI {
     public void displaySelectProduct() {
         System.out.println("Enter the KeyCode of the Item you would like to buy:");
         System.out.println(" ");
+    }
 
+    ////DISPLAY SUCCESSFUL PURCHASE
+    public void displaySuccessfulPurchase(String keyCode, int balance) {
+        double moneys = (double) balance / 100;
+        NumberFormat formatter = NumberFormat.getCurrencyInstance();
+        moneyString = formatter.format(moneys);
+
+        String name = stockMapCopy.get(keyCode).currentItem.getName();
+        String priceS = stockMapCopy.get(keyCode).currentItem.getPrice();
+        String sound = stockMapCopy.get(keyCode).currentItem.getSound();
+        System.out.println("\n" + name + " : PRICE= $" + priceS + " : REMAINING FUNDS = " + moneyString + " : " + sound);
     }
 
     ////NOT ENOUGH FUNDS

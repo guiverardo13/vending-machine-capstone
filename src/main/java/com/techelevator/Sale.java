@@ -8,10 +8,10 @@ public class Sale {
 
     }
 
-    public String getChangeCoins(int balance, int totalCost) {
-        if (balance > totalCost) {
-            changeTotal = balance - totalCost;
-            int[] coins = new int[3];//{numofQuarters,numofDimes,numofNickels}
+    public void getAndPrintChangeCoins(int balance) {
+        {
+            changeTotal = balance;
+            int[] coins = new int[4];//{numofQuarters,numofDimes,numofNickels}
             String[] denominations = {"Quarter", "Dime", "Nickel"};
             //COIN LOGIC
             while (changeTotal > 0) {
@@ -35,11 +35,11 @@ public class Sale {
                     finalCoins = finalCoins + coins[i] + " " + denominations[i] + ". ";
                 }
             }
-            return finalCoins;
-
-        } else if (balance == totalCost){
-            return "You receive $0.00 in change. ";
-        } else { return "You do not have enough in your balance!";}
+            System.out.println("\nENDING TRANSACTION\nHERE IS YOUR CHANGE: " + finalCoins);;
+        }
+        if (balance == 0) {
+            System.out.println("You receive $0.00 in change. ");
+        }
     }
 }
 
