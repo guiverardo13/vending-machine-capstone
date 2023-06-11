@@ -77,7 +77,8 @@ public class Menu {
                     break;
                 case "3":
                     System.out.println("--going back to main menu--");
-                    isReadyToQuit = true;
+                    //isReadyToQuit = true;
+                    this.displaysMain();
                     break;
                 default:
                     ui.displayIncorrect();

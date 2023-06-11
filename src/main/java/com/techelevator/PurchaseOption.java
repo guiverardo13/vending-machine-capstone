@@ -29,30 +29,33 @@ public class PurchaseOption {
     //////Option 1) feed money:
     public void insertCash() {
         ui.displayFeedMoney();
-        String userInput = ui.getUserInput();
+        userInput = ui.getUserInput();
+        while(!isValidInput) {
+            switch (userInput) {
+                case "1":
+                    balance += 100;
+                    isValidInput = true;
+                    break;
+                case "5":
+                    balance += 500;
+                    break;
+                case "10":
+                    balance += 1000;
+                    break;
+                case "20":
+                    balance += 2000;
+                    break;
+                case "50":
+                    balance += 5000;
+                    break;
+                case "100":
+                    balance += 10000;
+                    break;
+                default:
+                    ui.displayBillError();
 
-        switch (userInput){
-            case "1":
-                this.balance += 100;
-                break;
-            case "5":
-                this.balance += 500;
-                break;
-            case "10":
-                balance += 1000;
-                break;
-            case "20":
-                balance += 2000;
-                break;
-            case "50":
-                balance += 5000;
-                break;
-            case "100":
-                balance += 10000;
-                break;
-            default:
-                ui.displayBillError();
-                break;
+                    break;
+            }
         }
         System.out.println(balance);
     }
