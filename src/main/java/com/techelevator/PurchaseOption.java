@@ -19,16 +19,6 @@ public class PurchaseOption {
 
     }
 
-
-    // if user input equals a valid key code, call dispense method from UI.
-    // dispense method prints name, cost and remaining balance and displays sound.
-
-
-    ////do while !=3 && while !valid input number
-    ////do{sout the menu option from ui class
-    //       take customer choices as numbers}
-
-
     //////Option 1) feed money:
     public void insertCash() {
         ui.displayFeedMoneyMenu();
@@ -83,8 +73,6 @@ public class PurchaseOption {
                 balance -= priceI;
                 slotMapClass.takeOneOut(userInput);
                 ui.displaySuccessfulPurchase(userInput, balance);
-//                prints the item name, cost, and the money remaining. Dispensing also returns a message:
-//                All chip items print "Crunch Crunch, Yum!"
 //                 Log event
 
             } else if (slotMap.get(userInput).inventory <= 0) {
@@ -133,9 +121,7 @@ public class PurchaseOption {
         NumberFormat formatter = NumberFormat.getCurrencyInstance();
         String moneyString = formatter.format(moneys);
 
-
-
-        //logActivity.logEvent("FEED MONEY:", moneyString, );
+        logActivity.logEvent("FEED MONEY:", moneyString, );
     }
 }
 

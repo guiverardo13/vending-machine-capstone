@@ -40,7 +40,6 @@ public class Logger {
         }
         return logString;
 
-
     }
 }
 

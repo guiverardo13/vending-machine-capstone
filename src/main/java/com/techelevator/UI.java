@@ -29,7 +29,7 @@ public class UI {
 
     ///GOODBYE!!!
     public void displayGoodbye() {
-        System.out.println("\nHave a Great Day! Goodbye!\nsay no to drugs\n" +
+        System.out.println("\nHave a Great Day! Goodbye!\n" +
                 "~~~~~~~~~~~~\n");
     }
 
