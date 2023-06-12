@@ -1,11 +1,7 @@
 package com.techelevator;
-import java.text.DecimalFormat;
 import java.util.Map;
 import java.util.Scanner;
 import java.text.NumberFormat;
-
-
-////This is where we will log the actions to the txt file.//we could either do it as the things happen or make an array of Strings that we could then printwrite to txt file
 
 public class UI {
     private final Scanner userInput = new Scanner(System.in);
@@ -93,7 +89,7 @@ public class UI {
 
     ////INVALID ENTRY
     public void displayIncorrect() {
-        System.out.println("Invalid entry! Please try again.");
+        System.out.println("Invalid entry! Please try again. ");
     }
 
 
@@ -134,17 +130,7 @@ public class UI {
 
     ////BILL ERROR
     public void displayBillError(){
-        System.out.println("\nInvalid entry!!! Try again.\n");
-    }
-
-
-    ////FINISH TRANSACTION AND FINISH PRINTWRITING RECEIPT.
-    //Chiclets|1 <---WE CAN GET THIS NUMBER BY
-    //Triplemint|0      SUBTRACTING AMT LEFT BY 5.
-    //
-    //**TOTAL SALES** $11.05
-    public void FinishTransaction() {
-
+        System.out.println("\nInvalid entry!!! Try again. Or hit X to cancel and return to menu.\n");
     }
 
 }

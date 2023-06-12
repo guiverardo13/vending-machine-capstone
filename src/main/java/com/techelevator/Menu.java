@@ -1,11 +1,13 @@
 package com.techelevator;
 
+
+import java.io.IOException;
 import java.util.Map;
 
 public class Menu {
+
     ////CONSTRUCTOR
-    public Menu() throws MalformedItemException {
-    }
+    public Menu() throws MalformedItemException {}
 
     UI ui = new UI();
     private String userInput;
@@ -17,7 +19,7 @@ public class Menu {
 
 
 
-    public void displaysMain() throws MalformedItemException {
+    public void displaysMain() throws MalformedItemException, IOException {
         PurchaseOption purchaseOption = new PurchaseOption();
         boolean isReadyToQuit = false;
         do {
@@ -53,7 +55,7 @@ public class Menu {
 
 
 
-    public void displaysPurchaseMenu() throws MalformedItemException {
+    public void displaysPurchaseMenu() throws MalformedItemException, IOException {
 
         boolean isReadyToQuit = false;
         do{

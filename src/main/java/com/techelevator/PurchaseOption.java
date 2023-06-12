@@ -17,18 +17,7 @@ public class PurchaseOption {
     private int cashInput;
 
     public PurchaseOption() throws MalformedItemException {
-
     }
-
-
-    // if user input equals a valid key code, call dispense method from UI.
-    // dispense method prints name, cost and remaining balance and displays sound.
-
-
-    ////do while !=3 && while !valid input number
-    ////do{sout the menu option from ui class
-    //       take customer choices as numbers}
-
 
     //////Option 1) feed money:
     public void insertCash() {
@@ -75,28 +64,35 @@ public class PurchaseOption {
 //        slotMap = slotMapClass.getSlotMap();
         String price;
         // make do while loop to check valid input
+        do {
+            String tempUserInput = ui.getUserInput().toUpperCase();
+            if (slotMap.containsKey(tempUserInput)){
+                userInput = tempUserInput;
+                isValidInput = true;
+                price = slotMap.get(userInput).currentItem.getPrice();
+                Integer priceI = Integer.parseInt(price.replace(".", ""));
+                if (balance >= priceI) {
+                    if (slotMap.get(userInput).inventory > 0) {
+                        balance -= priceI;
+                        slotMapClass.takeOneOut(userInput);
+                        ui.displaySuccessfulPurchase(userInput, balance);
 
-        String tempUserInput = ui.getUserInput();
-        if (slotMap.containsKey(tempUserInput)) {
-            userInput = tempUserInput;
-            price = slotMap.get(userInput).currentItem.getPrice();
-            Integer priceI = Integer.parseInt(price.replace(".", ""));
-            if (balance >= priceI) {
-                if (slotMap.get(userInput).inventory > 0) {
-                    balance -= priceI;
-                    slotMapClass.takeOneOut(userInput);
-                    ui.displaySuccessfulPurchase(userInput, balance);
-
-
-                } else if (slotMap.get(userInput).inventory <= 0) {
-                    ui.displaySoldOut();
+                    } else if (slotMap.get(userInput).inventory <= 0) {
+                        ui.displaySoldOut();
+                    }
+                } else if (balance < priceI) {
+                    ui.displayNotEnoughFunds();
                 }
-            } else if (balance < priceI) {
-                ui.displayNotEnoughFunds();
+            } else if (tempUserInput.equals("X")){
+                isValidInput = true;
+            } else {
+                ui.displayIncorrect();
+                System.out.println("- Or hit X to cancel and return to menu.");
+                isValidInput = false;
             }
-        } else {
-            ui.displayIncorrect();
-        }
+        } while (!isValidInput);
+
+
     }
 
     //////Option 3) Finish Transaction
@@ -113,21 +109,23 @@ public class PurchaseOption {
     }
 
     public void logItem() {
-        double moneys = (double) balance / 100;
-        NumberFormat formatter = NumberFormat.getCurrencyInstance();
-        String moneyString = formatter.format(moneys);
+        if (slotMap.containsKey(userInput)) {
+            double moneys = (double) balance / 100;
+            NumberFormat formatter = NumberFormat.getCurrencyInstance();
+            String moneyString = "BALANCE:" + formatter.format(moneys);
 
-        String name = slotMap.get(userInput).currentItem.getName();
-        String price = ("$" + slotMap.get(userInput).currentItem.getPrice());
+            String name = slotMap.get(userInput).currentItem.getName();
+            String price = ("$" + slotMap.get(userInput).currentItem.getPrice());
 
 
-        logActivity.logEvent(name, price, moneyString);
+            logActivity.logEvent(name, price, moneyString);
+        }
     }
 
     public void logChange() {
         double moneys = (double) balance / 100;
         NumberFormat formatter = NumberFormat.getCurrencyInstance();
-        String moneyString = formatter.format(moneys);
+        String moneyString = "BALANCE:" + formatter.format(moneys);
 
         logActivity.logEvent("GIVE CHANGE:", moneyString, "$0.00");
     }
@@ -135,7 +133,7 @@ public class PurchaseOption {
     public void logFeedMoney() {
         double moneys = (double) balance / 100;
         NumberFormat formatter = NumberFormat.getCurrencyInstance();
-        String moneyString = formatter.format(moneys);
+        String moneyString = "BALANCE:" + formatter.format(moneys);
         String moneyIn = formatter.format((double) cashInput/100);
 
 

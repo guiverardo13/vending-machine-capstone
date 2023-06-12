@@ -8,7 +8,7 @@ public class Sale {
 
     }
 
-    public void getAndPrintChangeCoins(int balance) {
+    public String getAndPrintChangeCoins(int balance) {
         {
             changeTotal = balance;
             int[] coins = new int[4];//{numofQuarters,numofDimes,numofNickels}
@@ -36,9 +36,7 @@ public class Sale {
                 }
             }
             System.out.println("\nENDING TRANSACTION\nHERE IS YOUR CHANGE: " + finalCoins);;
-        }
-        if (balance == 0) {
-            System.out.println("You receive $0.00 in change. ");
+            return finalCoins;
         }
     }
 }

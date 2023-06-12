@@ -25,7 +25,7 @@ public class SaleTest {
         totalCost = 75;
         String expectedCoins = "1 Quarter. ";
         //Act
-        String testCoins = sut.getChangeCoins(balance, totalCost);
+        String testCoins = sut.getAndPrintChangeCoins(balance);
 
         //Assert
         Assert.assertEquals(expectedCoins, testCoins);
@@ -37,7 +37,7 @@ public class SaleTest {
         totalCost = 0;
         String expectedCoins = "4 Quarters. ";
         //Act
-        String testCoins = sut.getChangeCoins(balance, totalCost);
+        String testCoins = sut.getAndPrintChangeCoins(balance);
         //Assert
         Assert.assertEquals(expectedCoins, testCoins);
     }
