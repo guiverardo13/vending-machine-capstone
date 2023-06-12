@@ -7,7 +7,7 @@ public class UI {
     private final Scanner userInput = new Scanner(System.in);
 
     public String moneyString;
-    public UI() throws MalformedItemException {
+    public UI() {
     }
 
     private SlotMapClass slotMapClass = new SlotMapClass();
@@ -33,9 +33,9 @@ public class UI {
     public void displayMainMenu() {
         System.out.println(
                 "Please select (1)(2)or(3) from the menu options:\n" +
-                        "(1) Display Vending Machine Items\n" +
-                        "(2) Purchase\n" +
-                        "(3) Exit\n\n");
+                        " (1) Display Vending Machine Items\n" +
+                        " (2) Purchase\n" +
+                        " (3) Exit\n\n");
     }
 
     ///DISPLAY PURCHASE MENU
@@ -48,9 +48,9 @@ public class UI {
         System.out.println("Current Money Provided: " + moneyString + "\n");
         System.out.println(
                 "Please select (1)(2)or(3) from the menu options:\n" +
-                        "(1) Feed Money\n" +
-                        "(2) Select Product\n" +
-                        "(3) Finish Transaction\n\n");
+                        " (1) Feed Money\n" +
+                        " (2) Select Product\n" +
+                        " (3) Finish Transaction\n\n");
     }
 
     //// DISPLAY STOCK
@@ -76,9 +76,8 @@ public class UI {
                 inventoryLeft = "!!!SOLD OUT!!!";
             }
 
-            System.out.println("(" + keyCode + ") \"" + name + "\" $" + price + " >>> " + inventoryLeft + " <<<");
+            System.out.println(" (" + keyCode + ") \"" + name + "\" $" + price + " >>> " + inventoryLeft + " <<<");
         }
-        System.out.println("\n");
     }
 
     ////SOLD OUT!!!
@@ -96,12 +95,12 @@ public class UI {
     ////FEED MONEY
     public void displayFeedMoneyMenu() {
         System.out.println("$$$\nPlease feed your bill by selecting (1)(5)(10)(20)(50)or(100)\n" +
-                "(1)   : One-Dollar-Bill\n" +
-                "(5)   : Five-Dollar-Bill\n" +
-                "(10)  : Ten-Dollar-Bill\n" +
-                "(20)  : Twenty-Dollar-Bill\n" +
-                "(50)  : Fifty-Dollar-Bill\n" +
-                "(100) : Hundred-Dollar-Bill\n");
+                " (1)   : One-Dollar-Bill\n" +
+                " (5)   : Five-Dollar-Bill\n" +
+                " (10)  : Ten-Dollar-Bill\n" +
+                " (20)  : Twenty-Dollar-Bill\n" +
+                " (50)  : Fifty-Dollar-Bill\n" +
+                " (100) : Hundred-Dollar-Bill\n");
 
     }
 

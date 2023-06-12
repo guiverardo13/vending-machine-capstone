@@ -1,6 +1,5 @@
 package com.techelevator;
 
-import com.techelevator.Sale;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -41,10 +40,6 @@ public class SaleTest {
         //Assert
         Assert.assertEquals(expectedCoins, testCoins);
     }
-
-
-
-
 
 
 }

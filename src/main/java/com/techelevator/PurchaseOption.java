@@ -16,7 +16,7 @@ public class PurchaseOption {
     private Logger logActivity = new Logger();
     private int cashInput;
 
-    public PurchaseOption() throws MalformedItemException {
+    public PurchaseOption() {
     }
 
     //////Option 1) feed money:
@@ -61,9 +61,7 @@ public class PurchaseOption {
     //////Option 2) Select Item
     public void selectProduct() throws MalformedItemException {
 
-//        slotMap = slotMapClass.getSlotMap();
         String price;
-        // make do while loop to check valid input
         do {
             String tempUserInput = ui.getUserInput().toUpperCase();
             if (slotMap.containsKey(tempUserInput)){
@@ -87,34 +85,39 @@ public class PurchaseOption {
                 isValidInput = true;
             } else {
                 ui.displayIncorrect();
-                System.out.println("- Or hit X to cancel and return to menu.");
+                System.out.println("- Or hit (X) to cancel and return to menu.");
                 isValidInput = false;
             }
         } while (!isValidInput);
-
-
     }
 
     //////Option 3) Finish Transaction
     public void finishTransaction() {
         sale.getAndPrintChangeCoins(balance);
         balance = 0;
-        ////LOOOOOOOOOOG method
     }
-    ///returns to last menu. somehow.
-
 
     public int getBalance() {
         return balance;
+    }
+
+    public void logFeedMoney() {
+        double moneys = (double) balance / 100;
+        NumberFormat formatter = NumberFormat.getCurrencyInstance();
+        String moneyString = formatter.format(moneys);
+        String moneyIn = formatter.format((double) cashInput/100);
+
+
+       logActivity.logEvent("FEED MONEY:", moneyIn, moneyString);
     }
 
     public void logItem() {
         if (slotMap.containsKey(userInput)) {
             double moneys = (double) balance / 100;
             NumberFormat formatter = NumberFormat.getCurrencyInstance();
-            String moneyString = "BALANCE:" + formatter.format(moneys);
+            String moneyString = formatter.format(moneys);
 
-            String name = slotMap.get(userInput).currentItem.getName();
+            String name = "~" + slotMap.get(userInput).currentItem.getName().toUpperCase() + "~";
             String price = ("$" + slotMap.get(userInput).currentItem.getPrice());
 
 
@@ -125,20 +128,13 @@ public class PurchaseOption {
     public void logChange() {
         double moneys = (double) balance / 100;
         NumberFormat formatter = NumberFormat.getCurrencyInstance();
-        String moneyString = "BALANCE:" + formatter.format(moneys);
+        String moneyString = formatter.format(moneys);
+        String balanceAfterChange = formatter.format((double)(balance - balance)/100); //should always be 0.00
 
-        logActivity.logEvent("GIVE CHANGE:", moneyString, "$0.00");
+
+        logActivity.logEvent("GIVE CHANGE:", moneyString, balanceAfterChange);
     }
 
-    public void logFeedMoney() {
-        double moneys = (double) balance / 100;
-        NumberFormat formatter = NumberFormat.getCurrencyInstance();
-        String moneyString = "BALANCE:" + formatter.format(moneys);
-        String moneyIn = formatter.format((double) cashInput/100);
-
-
-       logActivity.logEvent("FEED MONEY:", moneyIn , moneyString);
-    }
 }
 
 

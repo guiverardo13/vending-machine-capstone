@@ -11,7 +11,6 @@ public class Menu {
 
     UI ui = new UI();
     private String userInput;
-    private SlotMapClass slotMap = new SlotMapClass();
     private Map<String, Slot> stockMapCopy;
     String name;
     PurchaseOption purchaseOption = new PurchaseOption();
@@ -24,7 +23,7 @@ public class Menu {
         boolean isReadyToQuit = false;
         do {
 
-            System.out.println("\n...\n");
+            System.out.println("~~~~~~~~~~~~\n");
             ui.displayMainMenu();
             userInput = ui.getUserInput();
             if (userInput.equals("3")){
@@ -59,7 +58,7 @@ public class Menu {
 
         boolean isReadyToQuit = false;
         do{
-            System.out.println("\n...\n");
+            System.out.println("\n~~~~~~~~~~~~\n");
             ui.displayPurchaseMenu(purchaseOption.balance);
             userInput = ui.getUserInput();
             if (userInput.equals("3")){
