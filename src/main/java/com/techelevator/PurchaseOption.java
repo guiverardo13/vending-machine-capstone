@@ -52,9 +52,7 @@ public class PurchaseOption {
             default:
                 ui.displayBillError();
                 break;
-
         }
-
         balance += cashInput;
     }
 
@@ -74,7 +72,6 @@ public class PurchaseOption {
                         balance -= priceI;
                         slotMapClass.takeOneOut(userInput);
                         ui.displaySuccessfulPurchase(userInput, balance);
-
                     } else if (slotMap.get(userInput).inventory <= 0) {
                         ui.displaySoldOut();
                     }
@@ -107,7 +104,6 @@ public class PurchaseOption {
         String moneyString = formatter.format(moneys);
         String moneyIn = formatter.format((double) cashInput/100);
 
-
        logActivity.logEvent("FEED MONEY:", moneyIn, moneyString);
     }
 
@@ -116,10 +112,8 @@ public class PurchaseOption {
             double moneys = (double) balance / 100;
             NumberFormat formatter = NumberFormat.getCurrencyInstance();
             String moneyString = formatter.format(moneys);
-
             String name = "~" + slotMap.get(userInput).currentItem.getName().toUpperCase() + "~";
             String price = ("$" + slotMap.get(userInput).currentItem.getPrice());
-
 
             logActivity.logEvent(name, price, moneyString);
         }
@@ -130,7 +124,6 @@ public class PurchaseOption {
         NumberFormat formatter = NumberFormat.getCurrencyInstance();
         String moneyString = formatter.format(moneys);
         String balanceAfterChange = formatter.format((double)(balance - balance)/100); //should always be 0.00
-
 
         logActivity.logEvent("GIVE CHANGE:", moneyString, balanceAfterChange);
     }

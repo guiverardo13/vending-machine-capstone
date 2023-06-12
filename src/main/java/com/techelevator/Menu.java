@@ -7,7 +7,7 @@ import java.util.Map;
 public class Menu {
 
     ////CONSTRUCTOR
-    public Menu() throws MalformedItemException {}
+    public Menu(){}
 
     UI ui = new UI();
     private String userInput;
@@ -80,7 +80,7 @@ public class Menu {
                 case "3":
                     purchaseOption.logChange();
                     purchaseOption.finishTransaction();
-                    System.out.println("\n--going back to main menu--");
+                    System.out.println("\n--going back to main menu--\n--stay in school. don't do drugs--");
 
                     //isReadyToQuit = true;
                     this.displaysMain();

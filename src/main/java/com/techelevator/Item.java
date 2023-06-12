@@ -32,10 +32,3 @@ public class Item {
 
 }
 
-//TRASH:
-//    public Item(String keyCode, String name, Stringble price, String type){
-//        this.keyCode = keyCode;
-//        this.name = name;
-//        this.price = price;
-//        this.type = type;
-//    }

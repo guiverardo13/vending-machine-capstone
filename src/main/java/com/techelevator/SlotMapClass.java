@@ -7,7 +7,7 @@ import java.io.FileNotFoundException; //new
 import java.util.Map;
 
 public class SlotMapClass {
-    ////<keycode , SLOT>
+    ////<KEYCODE, SLOT>
     String pathName;
     String line;
     static Map<String, Slot> slotMap = new LinkedHashMap<>();
@@ -29,21 +29,16 @@ public class SlotMapClass {
                 Slot slot = new Slot(line);
                 slotMap.put(slot.currentItem.getKeyCode(), slot);
             }
-
         } catch (FileNotFoundException e) {
             throw new MalformedItemException();
         }
     }
-//    public void printNow(){
-//        System.out.println(slotMap.get("A1").currentItem.getName());
-//    }
 
     //GETTER
     public Map<String, Slot> getSlotMap(){
        return new LinkedHashMap<>(slotMap);
     } // this creates a copy of our map
-
-    //pass userinput from ui
+    //METHOD
     public void takeOneOut(String userInput) {
         slotMap.get(userInput).inventory -= 1;
     }

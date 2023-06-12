@@ -11,7 +11,6 @@ public class Application {
 			 SlotMapClass slotMap = new SlotMapClass("");//this should set up new machine
 			 UI ui = new UI();
 			 Menu menu = new Menu();
-//			 logger.createNewLocalFile();
 			 ui.displayWelcome();
 			 menu.displaysMain();
 		}while (true);

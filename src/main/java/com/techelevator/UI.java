@@ -5,11 +5,8 @@ import java.text.NumberFormat;
 
 public class UI {
     private final Scanner userInput = new Scanner(System.in);
-
     public String moneyString;
-    public UI() {
-    }
-
+    public UI() {}
     private SlotMapClass slotMapClass = new SlotMapClass();
     private Slot item;
 
@@ -84,13 +81,11 @@ public class UI {
     public void displaySoldOut(){
         System.out.println("\n>>> SOLD OUT <<<\n");
     }
-    //        System.out.println(stockMapCopy.get("A1").currentItem.getName());
 
     ////INVALID ENTRY
     public void displayIncorrect() {
         System.out.println("Invalid entry! Please try again. ");
     }
-
 
     ////FEED MONEY
     public void displayFeedMoneyMenu() {

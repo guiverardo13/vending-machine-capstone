@@ -29,10 +29,5 @@ public class Slot {
             currentItem = new Item(key, name, price, type, sound);
         }
             inventory = STARTING_INVENTORY;
-
     }
-//    public String[] getLineParts(){
-//        return lineParts;
-//    }
-
 }
