@@ -124,7 +124,7 @@ public class UI {
 
     ////BILL ERROR
     public void displayBillError(){
-        System.out.println("\nInvalid entry!!! Try again. Or hit X to cancel and return to menu.\n");
+        System.out.println("\nInvalid entry!!! Try again.\n");
     }
 
 }

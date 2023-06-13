@@ -22,7 +22,6 @@ public class Menu {
         PurchaseOption purchaseOption = new PurchaseOption();
         boolean isReadyToQuit = false;
         do {
-
             System.out.println("~~~~~~~~~~~~\n");
             ui.displayMainMenu();
             userInput = ui.getUserInput();
@@ -48,7 +47,6 @@ public class Menu {
                     ui.displayIncorrect();
                     break;
             }
-
         }while (!isReadyToQuit);
     }
 
